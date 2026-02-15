@@ -1,23 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lai Rai | Vietnamese Tapas - Eat Slow. Drink More. Stay Awhile.</title>
-    <meta name="description" content="Lai Rai Vietnamese Tapas in Davie, Florida. Experience authentic Vietnamese small plates perfect for sharing. Eat slow. Drink more. Stay awhile.">
-    
+    <meta name="description"
+        content="Lai Rai Vietnamese Tapas in Davie, Florida. Experience authentic Vietnamese small plates perfect for sharing. Eat slow. Drink more. Stay awhile.">
+
     <!-- Favicon -->
     <link rel="icon" href="favicon.ico?v=1" type="image/x-icon">
     <link rel="shortcut icon" href="favicon.ico?v=1" type="image/x-icon">
-    
+
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
-    
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Montserrat:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+
     <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    
+
     <style>
         :root {
             /* Color Palette - Extracted from logo */
@@ -31,40 +35,43 @@
             --gold-accessible: #9A7045;
             --text-dark: #3D2B22;
             --text-light: #5A4136;
-            
+
             /* Typography */
             --font-serif: 'Cormorant Garamond', Georgia, serif;
             --font-sans: 'Montserrat', -apple-system, sans-serif;
-            
+
             /* Spacing */
             --section-padding: clamp(4rem, 10vw, 8rem);
         }
-        
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-        
+
         html {
             scroll-behavior: smooth;
             /* WCAG 2.2 - 2.4.11 Focus Not Obscured: offset scroll to prevent fixed nav from hiding focused elements */
             scroll-padding-top: 80px;
         }
-        
+
         /* Respect reduced motion preferences (WCAG 2.3.3) */
         @media (prefers-reduced-motion: reduce) {
             html {
                 scroll-behavior: auto;
             }
-            *, *::before, *::after {
+
+            *,
+            *::before,
+            *::after {
                 animation-duration: 0.01ms !important;
                 animation-iteration-count: 1 !important;
                 transition-duration: 0.01ms !important;
                 scroll-behavior: auto !important;
             }
         }
-        
+
         body {
             font-family: var(--font-sans);
             background-color: var(--cream);
@@ -72,7 +79,7 @@
             line-height: 1.6;
             overflow-x: hidden;
         }
-        
+
         /* Skip to main content link (WCAG 2.4.1) */
         .skip-link {
             position: absolute;
@@ -89,11 +96,11 @@
             border-radius: 0 0 4px 4px;
             transition: top 0.2s ease;
         }
-        
+
         .skip-link:focus {
             top: 0;
         }
-        
+
         /* Screen reader only utility (visible to assistive tech) */
         .sr-only {
             position: absolute;
@@ -106,7 +113,7 @@
             white-space: nowrap;
             border-width: 0;
         }
-        
+
         /* Visible focus indicators for keyboard navigation (WCAG 2.4.7 + 2.2 criterion 2.4.13 Focus Appearance) 
            Focus indicator: 3px solid outline with offset ensures the indicator area 
            exceeds the minimum 2px perimeter and contrasts against adjacent colors */
@@ -116,33 +123,36 @@
             z-index: 1;
             position: relative;
         }
-        
+
         /* WCAG 2.2 - 2.4.11/2.4.12 Focus Not Obscured: ensure focused elements scroll clear of the fixed nav */
         section:target,
         [tabindex="-1"]:focus {
             scroll-margin-top: 80px;
         }
-        
+
         /* Custom Selection */
         ::selection {
             background-color: var(--terracotta);
             color: var(--cream);
         }
-        
+
         /* Typography */
-        h1, h2, h3, h4 {
+        h1,
+        h2,
+        h3,
+        h4 {
             font-family: var(--font-serif);
             font-weight: 400;
             line-height: 1.2;
         }
-        
+
         .section-title {
             font-size: clamp(2.5rem, 5vw, 4rem);
             color: var(--terracotta);
             margin-bottom: 1rem;
             letter-spacing: 0.02em;
         }
-        
+
         .section-subtitle {
             font-family: var(--font-serif);
             font-style: italic;
@@ -150,7 +160,7 @@
             color: var(--text-light);
             margin-bottom: 3rem;
         }
-        
+
         /* Navigation */
         .nav {
             position: fixed;
@@ -164,14 +174,14 @@
             align-items: center;
             transition: all 0.4s ease;
         }
-        
+
         .nav.scrolled {
             background-color: rgba(247, 243, 235, 0.95);
             backdrop-filter: blur(10px);
             padding: 1rem 5%;
             box-shadow: 0 2px 20px rgba(93, 61, 46, 0.1);
         }
-        
+
         .nav-logo {
             font-family: var(--font-serif);
             font-size: 1.8rem;
@@ -180,13 +190,13 @@
             letter-spacing: 0.1em;
             font-weight: 500;
         }
-        
+
         .nav-links {
             display: flex;
             gap: 3rem;
             list-style: none;
         }
-        
+
         .nav-links a {
             color: var(--text-dark);
             text-decoration: none;
@@ -202,7 +212,7 @@
             display: inline-flex;
             align-items: center;
         }
-        
+
         .nav-links a::after {
             content: '';
             position: absolute;
@@ -213,21 +223,21 @@
             background-color: var(--terracotta);
             transition: width 0.3s ease;
         }
-        
+
         .nav-links a:hover,
         .nav-links a:focus-visible {
             color: var(--terracotta);
         }
-        
+
         .nav-links a:hover::after,
         .nav-links a:focus-visible::after {
             width: 100%;
         }
-        
+
         .nav-links a:focus-visible {
             outline: none;
         }
-        
+
         .nav-toggle {
             display: none;
             flex-direction: column;
@@ -242,7 +252,7 @@
             justify-content: center;
             align-items: center;
         }
-        
+
         .nav-toggle span {
             width: 25px;
             height: 2px;
@@ -250,7 +260,7 @@
             transition: all 0.3s ease;
             display: block;
         }
-        
+
         /* Hero Section */
         .hero {
             min-height: 100vh;
@@ -263,7 +273,7 @@
             position: relative;
             background: linear-gradient(135deg, var(--cream) 0%, var(--cream-light) 50%, var(--cream) 100%);
         }
-        
+
         .hero::before {
             content: '';
             position: absolute;
@@ -274,20 +284,20 @@
             background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%239E5A3C' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
             opacity: 0.5;
         }
-        
+
         .hero-content {
             position: relative;
             z-index: 1;
             max-width: 800px;
         }
-        
+
         .hero-logo {
             width: clamp(220px, 30vw, 350px);
             margin-bottom: 1.5rem;
             filter: drop-shadow(0 10px 30px rgba(93, 61, 46, 0.15));
             animation: fadeInUp 1s ease-out;
         }
-        
+
         .hero-tagline {
             font-family: var(--font-serif);
             font-size: clamp(1.3rem, 2.5vw, 1.8rem);
@@ -296,7 +306,7 @@
             margin-bottom: 0.75rem;
             animation: fadeInUp 1s ease-out 0.2s both;
         }
-        
+
         .hero-description {
             font-size: clamp(0.95rem, 1.3vw, 1.05rem);
             color: var(--text-light);
@@ -305,7 +315,7 @@
             line-height: 1.7;
             animation: fadeInUp 1s ease-out 0.4s both;
         }
-        
+
         .hero-cta {
             display: flex;
             gap: 1.25rem;
@@ -314,7 +324,7 @@
             animation: fadeInUp 1s ease-out 0.6s both;
             margin-bottom: 2.5rem;
         }
-        
+
         .btn {
             display: inline-flex;
             align-items: center;
@@ -331,36 +341,36 @@
             /* WCAG 2.2 - 2.5.8 Target Size: minimum 24px height */
             min-height: 44px;
         }
-        
+
         .btn-primary {
             background-color: var(--terracotta);
             color: var(--cream);
         }
-        
+
         .btn-primary:hover,
         .btn-primary:focus-visible {
             background-color: var(--terracotta-dark);
             transform: translateY(-2px);
             box-shadow: 0 10px 30px rgba(158, 90, 60, 0.3);
         }
-        
+
         .btn-primary:focus-visible {
             outline: 3px solid var(--text-dark);
             outline-offset: 3px;
         }
-        
+
         .btn-secondary {
             background-color: transparent;
             color: var(--terracotta);
             border: 1px solid var(--terracotta);
         }
-        
+
         .btn-secondary:hover,
         .btn-secondary:focus-visible {
             background-color: var(--terracotta);
             color: var(--cream);
         }
-        
+
         .scroll-indicator {
             position: absolute;
             bottom: 2rem;
@@ -376,20 +386,20 @@
             justify-content: center;
             text-decoration: none;
         }
-        
+
         .scroll-indicator i {
             font-size: 1.8rem;
             color: var(--terracotta);
             opacity: 0.7;
         }
-        
+
         /* About Section */
         .about {
             padding: var(--section-padding) 5%;
             background-color: var(--cream-light);
             position: relative;
         }
-        
+
         .about-container {
             max-width: 1200px;
             margin: 0 auto;
@@ -398,13 +408,13 @@
             gap: 5rem;
             align-items: center;
         }
-        
+
         .about-content h2 {
             font-size: clamp(2rem, 4vw, 3.5rem);
             color: var(--terracotta);
             margin-bottom: 1.5rem;
         }
-        
+
         .about-content h2 span {
             display: block;
             font-style: italic;
@@ -412,14 +422,14 @@
             color: var(--text-light);
             font-weight: 300;
         }
-        
+
         .about-content p {
             font-size: 1.05rem;
             line-height: 1.9;
             color: var(--text-light);
             margin-bottom: 1.5rem;
         }
-        
+
         .about-content .vietnamese-text {
             font-family: var(--font-serif);
             font-style: italic;
@@ -431,28 +441,28 @@
             margin: 2rem 0;
             border-left: none;
         }
-        
+
         .about-visual {
             position: relative;
         }
-        
+
         .about-video-container {
             position: relative;
             border-radius: 4px;
             overflow: hidden;
             box-shadow: 0 30px 60px rgba(93, 61, 46, 0.2);
         }
-        
+
         .about-video-container video {
             width: 100%;
             display: block;
             border-radius: 4px;
         }
-        
+
         .about-video-container video::-webkit-media-controls-panel {
             background: linear-gradient(transparent, rgba(93, 61, 46, 0.8));
         }
-        
+
         .about-decoration {
             position: absolute;
             width: 200px;
@@ -463,19 +473,19 @@
             right: -30px;
             z-index: -1;
         }
-        
+
         /* Menu Section */
         .menu {
             padding: var(--section-padding) 5%;
             background-color: var(--cream);
         }
-        
+
         .menu-header {
             text-align: center;
             max-width: 700px;
             margin: 0 auto 4rem;
         }
-        
+
         .menu-categories {
             display: flex;
             justify-content: center;
@@ -483,7 +493,7 @@
             flex-wrap: wrap;
             margin-bottom: 4rem;
         }
-        
+
         .menu-category-btn {
             padding: 0.8rem 1.8rem;
             font-family: var(--font-sans);
@@ -499,7 +509,7 @@
             min-height: 44px;
             min-width: 44px;
         }
-        
+
         .menu-category-btn:hover,
         .menu-category-btn:focus-visible,
         .menu-category-btn.active {
@@ -507,12 +517,12 @@
             border-color: var(--terracotta);
             color: var(--cream);
         }
-        
+
         .menu-category-btn:focus-visible {
             outline: 3px solid var(--text-dark);
             outline-offset: 3px;
         }
-        
+
         .menu-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
@@ -520,7 +530,7 @@
             max-width: 1400px;
             margin: 0 auto;
         }
-        
+
         .menu-item {
             background: var(--cream-light);
             padding: 2rem;
@@ -530,31 +540,31 @@
             opacity: 0;
             transform: translateY(20px);
         }
-        
+
         .menu-item.show {
             display: block;
             animation: fadeInUp 0.5s ease forwards;
         }
-        
+
         .menu-item:hover {
             transform: translateY(-5px);
             box-shadow: 0 20px 40px rgba(93, 61, 46, 0.1);
         }
-        
+
         .menu-item-header {
             display: flex;
             justify-content: space-between;
             align-items: flex-start;
             margin-bottom: 0.5rem;
         }
-        
+
         .menu-item-name {
             font-family: var(--font-serif);
             font-size: 1.4rem;
             color: var(--terracotta);
             font-weight: 400;
         }
-        
+
         .menu-item-name-viet {
             font-family: var(--font-serif);
             font-style: italic;
@@ -562,32 +572,32 @@
             color: var(--text-light);
             margin-bottom: 0.5rem;
         }
-        
+
         .menu-item-price {
             font-family: var(--font-serif);
             font-size: 1.2rem;
             color: var(--terracotta-dark);
             font-weight: 500;
         }
-        
+
         .menu-item-description {
             font-size: 0.95rem;
             color: var(--text-light);
             line-height: 1.7;
         }
-        
+
         .menu-cta {
             text-align: center;
             margin-top: 4rem;
         }
-        
+
         /* Location Section */
         .location {
             padding: var(--section-padding) 5%;
             background: linear-gradient(135deg, var(--brown) 0%, var(--terracotta-dark) 100%);
             color: var(--cream);
         }
-        
+
         .location-container {
             max-width: 1200px;
             margin: 0 auto;
@@ -596,30 +606,30 @@
             gap: 5rem;
             align-items: center;
         }
-        
+
         .location-content h2 {
             font-size: clamp(2rem, 4vw, 3rem);
             color: var(--cream);
             margin-bottom: 2rem;
         }
-        
+
         .location-info {
             margin-bottom: 2rem;
         }
-        
+
         .location-info-item {
             display: flex;
             align-items: flex-start;
             gap: 1rem;
             margin-bottom: 1.5rem;
         }
-        
+
         .location-info-item i {
             font-size: 1.2rem;
             color: var(--gold);
             margin-top: 0.3rem;
         }
-        
+
         .location-info-item h4 {
             font-family: var(--font-sans);
             font-size: 0.85rem;
@@ -628,32 +638,32 @@
             margin-bottom: 0.5rem;
             color: var(--gold);
         }
-        
+
         .location-info-item p {
             color: rgba(247, 243, 235, 0.95);
             line-height: 1.7;
         }
-        
+
         .hours-grid {
             width: 100%;
             border-collapse: collapse;
         }
-        
+
         .hours-row td {
             padding: 0.5rem 0;
             border-bottom: 1px solid rgba(247, 243, 235, 0.1);
             color: rgba(247, 243, 235, 0.95);
         }
-        
+
         .hours-row td:first-child {
             font-weight: 500;
             padding-right: 2rem;
         }
-        
+
         .hours-row td:last-child {
             text-align: right;
         }
-        
+
         .location-map {
             position: relative;
             border-radius: 4px;
@@ -661,33 +671,33 @@
             height: 400px;
             box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
         }
-        
+
         .location-map iframe {
             width: 100%;
             height: 100%;
             border: 0;
             filter: grayscale(20%) contrast(1.1);
         }
-        
+
         /* Social & Contact */
         .contact {
             padding: var(--section-padding) 5%;
             background-color: var(--cream-light);
             text-align: center;
         }
-        
+
         .contact-header {
             max-width: 600px;
             margin: 0 auto 3rem;
         }
-        
+
         .social-links {
             display: flex;
             justify-content: center;
             gap: 2rem;
             margin-bottom: 3rem;
         }
-        
+
         .social-link {
             display: flex;
             flex-direction: column;
@@ -702,29 +712,29 @@
             justify-content: center;
             padding: 0.5rem;
         }
-        
+
         .social-link i {
             font-size: 2rem;
             color: var(--terracotta);
             transition: transform 0.3s ease;
         }
-        
+
         .social-link span {
             font-size: 0.75rem;
             letter-spacing: 0.1em;
             text-transform: uppercase;
         }
-        
+
         .social-link:hover i,
         .social-link:focus-visible i {
             transform: scale(1.2);
         }
-        
+
         .social-link:hover,
         .social-link:focus-visible {
             color: var(--terracotta);
         }
-        
+
         /* Footer */
         .footer {
             background-color: var(--brown);
@@ -732,7 +742,7 @@
             padding: 3rem 5%;
             text-align: center;
         }
-        
+
         .footer-logo {
             font-family: var(--font-serif);
             font-size: 2rem;
@@ -740,14 +750,14 @@
             margin-bottom: 1rem;
             letter-spacing: 0.1em;
         }
-        
+
         .footer-tagline {
             font-family: var(--font-serif);
             font-style: italic;
             color: var(--gold);
             margin-bottom: 2rem;
         }
-        
+
         .footer-links {
             display: flex;
             justify-content: center;
@@ -755,7 +765,7 @@
             margin-bottom: 2rem;
             flex-wrap: wrap;
         }
-        
+
         .footer-links a {
             color: rgba(247, 243, 235, 0.85);
             text-decoration: none;
@@ -769,69 +779,78 @@
             display: inline-flex;
             align-items: center;
         }
-        
+
         .footer-links a:hover,
         .footer-links a:focus-visible {
             color: var(--cream);
         }
-        
+
         .footer-links a:focus-visible {
             outline-color: var(--gold);
         }
-        
+
         .footer-copyright {
             font-size: 0.85rem;
             color: rgba(247, 243, 235, 0.75);
         }
-        
+
         /* Animations */
         @keyframes fadeInUp {
             from {
                 opacity: 0;
                 transform: translateY(30px);
             }
+
             to {
                 opacity: 1;
                 transform: translateY(0);
             }
         }
-        
+
         @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% {
+
+            0%,
+            20%,
+            50%,
+            80%,
+            100% {
                 transform: translateX(-50%) translateY(0);
             }
+
             40% {
                 transform: translateX(-50%) translateY(-10px);
             }
+
             60% {
                 transform: translateX(-50%) translateY(-5px);
             }
         }
-        
+
         /* Reveal Animation */
         .reveal {
             opacity: 0;
             transform: translateY(50px);
             transition: all 0.8s ease;
         }
-        
+
         .reveal.active {
             opacity: 1;
             transform: translateY(0);
         }
-        
+
         /* Mobile Responsive */
         @media (max-width: 992px) {
+
             .about-container,
             .location-container {
                 grid-template-columns: 1fr;
                 gap: 3rem;
             }
-            
+
             .about-visual {
                 order: -1;
             }
-            
+
             .nav-links {
                 position: fixed;
                 top: 0;
@@ -845,53 +864,53 @@
                 gap: 2rem;
                 transition: right 0.4s ease;
             }
-            
+
             .nav-links.active {
                 right: 0;
             }
-            
+
             .nav-toggle {
                 display: flex;
                 z-index: 1001;
             }
-            
+
             .nav-toggle.active span:nth-child(1) {
                 transform: rotate(45deg) translate(5px, 5px);
             }
-            
+
             .nav-toggle.active span:nth-child(2) {
                 opacity: 0;
             }
-            
+
             .nav-toggle.active span:nth-child(3) {
                 transform: rotate(-45deg) translate(5px, -5px);
             }
         }
-        
+
         @media (max-width: 768px) {
             .menu-grid {
                 grid-template-columns: 1fr;
             }
-            
+
             .hero-cta {
                 flex-direction: column;
                 align-items: center;
             }
-            
+
             .social-links {
                 gap: 1.5rem;
             }
-            
+
             .location-map {
                 height: 300px;
             }
         }
-        
+
         @media (max-width: 480px) {
             .menu-categories {
                 gap: 0.5rem;
             }
-            
+
             .menu-category-btn {
                 padding: 0.6rem 1rem;
                 font-size: 0.7rem;
@@ -900,7 +919,7 @@
                 min-width: 44px;
             }
         }
-        
+
         /* High contrast mode support (WCAG 1.4.11) */
         @media (prefers-contrast: high) {
             :root {
@@ -912,34 +931,348 @@
                 --text-dark: #000000;
                 --text-light: #1A1A1A;
             }
-            
+
             .menu-item,
             .menu-category-btn {
                 border: 2px solid var(--text-dark);
             }
-            
+
             .btn-secondary {
                 border-width: 2px;
             }
-            
+
             *:focus-visible {
                 outline-width: 4px;
             }
         }
+
+        /* ===== SOCIAL PROOF SECTION ===== */
+        .social-proof {
+            padding: clamp(3rem, 6vw, 5rem) 5%;
+            background: linear-gradient(135deg, var(--brown) 0%, var(--terracotta-dark) 50%, var(--brown) 100%);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .social-proof::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23C4956A' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            opacity: 0.5;
+        }
+
+        .social-proof-inner {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .yelp-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(196, 149, 106, 0.3);
+            padding: 0.6rem 1.5rem;
+            border-radius: 50px;
+            margin-bottom: 1.5rem;
+            font-size: 0.8rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--gold);
+        }
+
+        .yelp-badge i {
+            font-size: 1.1rem;
+        }
+
+        .star-rating {
+            display: flex;
+            justify-content: center;
+            gap: 0.4rem;
+            margin-bottom: 1rem;
+        }
+
+        .star-rating i {
+            font-size: 1.8rem;
+            color: #FFD700;
+        }
+
+        .rating-number {
+            font-family: var(--font-serif);
+            font-size: clamp(3rem, 6vw, 4.5rem);
+            color: var(--cream);
+            line-height: 1;
+            margin-bottom: 0.5rem;
+        }
+
+        .rating-label {
+            font-size: 0.85rem;
+            color: rgba(247, 243, 235, 0.7);
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            margin-bottom: 2rem;
+        }
+
+        .proof-quote {
+            font-family: var(--font-serif);
+            font-style: italic;
+            font-size: clamp(1.1rem, 2vw, 1.4rem);
+            color: rgba(247, 243, 235, 0.9);
+            line-height: 1.8;
+            max-width: 650px;
+            margin: 0 auto 2rem;
+            position: relative;
+            padding: 0 2rem;
+        }
+
+        .proof-quote::before,
+        .proof-quote::after {
+            font-family: var(--font-serif);
+            font-size: 3rem;
+            color: var(--gold);
+            opacity: 0.5;
+            position: absolute;
+            line-height: 1;
+        }
+
+        .proof-quote::before {
+            content: '\201C';
+            top: -0.5rem;
+            left: 0;
+        }
+
+        .proof-quote::after {
+            content: '\201D';
+            bottom: -1rem;
+            right: 0;
+        }
+
+        .proof-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--gold);
+            text-decoration: none;
+            font-size: 0.85rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+            min-height: 44px;
+            padding: 0.5rem 1rem;
+        }
+
+        .proof-link:hover,
+        .proof-link:focus-visible {
+            color: var(--cream);
+        }
+
+        /* ===== PHOTO GALLERY SECTION ===== */
+        .gallery {
+            padding: var(--section-padding) 5%;
+            background-color: var(--cream-light);
+        }
+
+        .gallery-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 3rem;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: auto auto;
+            gap: 1rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 4px;
+            aspect-ratio: 4/3;
+            cursor: pointer;
+        }
+
+        .gallery-item:first-child {
+            grid-column: 1 / 3;
+            grid-row: 1 / 3;
+            aspect-ratio: auto;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .gallery-item:hover img,
+        .gallery-item:focus-within img {
+            transform: scale(1.08);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 2rem 1.5rem 1.5rem;
+            background: linear-gradient(transparent, rgba(61, 43, 34, 0.85));
+            transform: translateY(100%);
+            transition: transform 0.4s ease;
+        }
+
+        .gallery-item:hover .gallery-overlay,
+        .gallery-item:focus-within .gallery-overlay {
+            transform: translateY(0);
+        }
+
+        .gallery-overlay span {
+            font-family: var(--font-serif);
+            font-size: 1.1rem;
+            color: var(--cream);
+        }
+
+        .gallery-item-link {
+            position: absolute;
+            inset: 0;
+            z-index: 1;
+        }
+
+        .gallery-item-link:focus-visible {
+            outline: 3px solid var(--gold);
+            outline-offset: -3px;
+        }
+
+        @media (max-width: 768px) {
+            .gallery-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .gallery-item:first-child {
+                grid-column: 1 / -1;
+                grid-row: auto;
+                aspect-ratio: 16/9;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .gallery-item:first-child {
+                aspect-ratio: 4/3;
+            }
+        }
+
+        /* ===== HERO ENHANCEMENTS ===== */
+        .hero-yelp-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            background: rgba(158, 90, 60, 0.1);
+            border: 1px solid rgba(158, 90, 60, 0.25);
+            padding: 0.4rem 1rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            color: var(--terracotta);
+            margin-bottom: 1.5rem;
+            animation: fadeInUp 1s ease-out 0.8s both;
+        }
+
+        .hero-yelp-badge i {
+            color: #FFD700;
+            font-size: 0.9rem;
+        }
+
+        @keyframes subtleFloat {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-8px);
+            }
+        }
+
+        .hero-logo {
+            animation: fadeInUp 1s ease-out, subtleFloat 6s ease-in-out 2s infinite;
+        }
+
+        /* Gradient text effect for section titles */
+        .gradient-title {
+            background: linear-gradient(135deg, var(--terracotta) 0%, var(--gold-accessible) 50%, var(--terracotta) 100%);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: gradientShift 6s ease infinite;
+        }
+
+        @keyframes gradientShift {
+            0% {
+                background-position: 0% center;
+            }
+
+            50% {
+                background-position: 100% center;
+            }
+
+            100% {
+                background-position: 0% center;
+            }
+        }
+
+        /* Staggered gallery fade-in */
+        .gallery-item.reveal {
+            transition-delay: calc(var(--i, 0) * 0.1s);
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .hero-logo {
+                animation: fadeInUp 0.01ms ease-out !important;
+            }
+
+            .gradient-title {
+                animation: none !important;
+                -webkit-text-fill-color: var(--terracotta);
+            }
+
+            .gallery-overlay {
+                transform: translateY(0);
+            }
+        }
     </style>
 </head>
+
 <body>
     <!-- Skip to main content (WCAG 2.4.1) -->
     <a href="#main-content" class="skip-link">Skip to main content</a>
-    
+
     <!-- Navigation -->
     <nav class="nav" aria-label="Main navigation">
         <a href="#" class="nav-logo" aria-label="Lai Rai - back to top">lai rai</a>
         <ul class="nav-links" id="nav-links" role="list">
             <li><a href="#about">About</a></li>
             <li><a href="#menu">Menu</a></li>
+            <li><a href="#gallery">Gallery</a></li>
             <li><a href="#location">Visit</a></li>
-            <li><a href="https://www.toasttab.com/local/order/lairai/r-34a7783e-0721-4742-af85-1f6a82c9e55f?diningOption=takeout" target="_blank" rel="noopener noreferrer">Order Online<span class="sr-only"> (opens in new tab)</span></a></li>
+            <li><a href="https://www.toasttab.com/local/order/lairai/r-34a7783e-0721-4742-af85-1f6a82c9e55f?diningOption=takeout"
+                    target="_blank" rel="noopener noreferrer">Order Online<span class="sr-only"> (opens in new
+                        tab)</span></a></li>
         </ul>
         <button class="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="nav-links">
             <span></span>
@@ -950,596 +1283,735 @@
 
     <!-- Hero Section -->
     <main id="main-content">
-    <section class="hero" id="home" aria-label="Welcome to Lai Rai">
-        <div class="hero-content">
-            <img src="media&photos/Logo.jpg" alt="Lai Rai Vietnamese Tapas - Two hands sharing a plate of skewers, logo with tagline: eat slow, drink more, stay awhile" class="hero-logo">
-            <p class="hero-tagline">eat slow. drink more. stay awhile.</p>
-            <p class="hero-description">
-                Experience the art of Vietnamese <span lang="vi">"nhậu"</span> — the tradition of lingering over 
-                shared plates, cold drinks, and warm conversation. At Lai Rai, every meal 
-                is an invitation to slow down and savor the moment.
-            </p>
-            <div class="hero-cta">
-                <a href="https://www.toasttab.com/local/order/lairai/r-34a7783e-0721-4742-af85-1f6a82c9e55f?diningOption=takeout" class="btn btn-primary" target="_blank" rel="noopener noreferrer">
-                    <i class="fas fa-utensils" aria-hidden="true"></i> Order Pickup<span class="sr-only"> (opens in new tab)</span>
-                </a>
-                <a href="#menu" class="btn btn-secondary">
-                    Explore Menu
-                </a>
+        <section class="hero" id="home" aria-label="Welcome to Lai Rai">
+            <div class="hero-content">
+                <img src="media&photos/Logo.jpg"
+                    alt="Lai Rai Vietnamese Tapas - Two hands sharing a plate of skewers, logo with tagline: eat slow, drink more, stay awhile"
+                    class="hero-logo">
+                <p class="hero-tagline">eat slow. drink more. stay awhile.</p>
+                <p class="hero-description">
+                    Experience the art of Vietnamese <span lang="vi">"nhậu"</span> — the tradition of lingering over
+                    shared plates, cold drinks, and warm conversation. At Lai Rai, every meal
+                    is an invitation to slow down and savor the moment.
+                </p>
+                <div class="hero-cta">
+                    <a href="https://www.toasttab.com/local/order/lairai/r-34a7783e-0721-4742-af85-1f6a82c9e55f?diningOption=takeout"
+                        class="btn btn-primary" target="_blank" rel="noopener noreferrer">
+                        <i class="fas fa-utensils" aria-hidden="true"></i> Order Pickup<span class="sr-only"> (opens in
+                            new tab)</span>
+                    </a>
+                    <a href="#menu" class="btn btn-secondary">
+                        Explore Menu
+                    </a>
+                </div>
+                <div class="hero-yelp-badge" aria-label="Rated 5 out of 5 stars on Yelp">
+                    <i class="fas fa-star" aria-hidden="true"></i>
+                    <i class="fas fa-star" aria-hidden="true"></i>
+                    <i class="fas fa-star" aria-hidden="true"></i>
+                    <i class="fas fa-star" aria-hidden="true"></i>
+                    <i class="fas fa-star" aria-hidden="true"></i>
+                    <span>5.0 on Yelp</span>
+                </div>
             </div>
-        </div>
-        <a href="#about" class="scroll-indicator" aria-label="Scroll down to learn more">
-            <i class="fas fa-chevron-down" aria-hidden="true"></i>
-        </a>
-    </section>
+            <a href="#about" class="scroll-indicator" aria-label="Scroll down to learn more">
+                <i class="fas fa-chevron-down" aria-hidden="true"></i>
+            </a>
+        </section>
 
-    <!-- About Section -->
-    <section class="about" id="about" aria-labelledby="about-heading">
-        <div class="about-container">
-            <div class="about-content reveal">
-                <h2 id="about-heading">
-                    What is Lai Rai?
-                    <span lang="vi">làm lai rai</span>
-                </h2>
-                <p>
-                    <strong lang="vi">Lai rai</strong> is more than a phrase — it's a way of life. In Vietnamese culture, 
-                    it means to do something slowly, "bit by bit," stretching a quick gathering into 
-                    hours of enjoyment with the people who matter most.
-                </p>
-                <p>
-                    It's the art of nursing a cold beer while sharing crispy quail and grilled skewers. 
-                    It's conversations that flow as freely as the tamarind sauce. It's staying just 
-                    one more hour because the company is that good.
-                </p>
-                <blockquote class="vietnamese-text">
-                    <span lang="vi">"Let's nhậu!"</span> — The Vietnamese art of drinking and dining together
+        <!-- Social Proof Section -->
+        <section class="social-proof" id="proof" aria-labelledby="proof-heading">
+            <div class="social-proof-inner reveal">
+                <div class="yelp-badge">
+                    <i class="fab fa-yelp" aria-hidden="true"></i>
+                    <span>Featured on Yelp</span>
+                </div>
+                <div class="star-rating" role="img" aria-label="5 out of 5 stars">
+                    <i class="fas fa-star" aria-hidden="true"></i>
+                    <i class="fas fa-star" aria-hidden="true"></i>
+                    <i class="fas fa-star" aria-hidden="true"></i>
+                    <i class="fas fa-star" aria-hidden="true"></i>
+                    <i class="fas fa-star" aria-hidden="true"></i>
+                </div>
+                <h2 class="rating-number" id="proof-heading" aria-label="Perfect 5.0 rating"><span
+                        id="rating-counter">5.0</span></h2>
+                <p class="rating-label">Perfect Rating · Vietnamese · Tapas · Comfort Food</p>
+                <blockquote class="proof-quote">
+                    At Lai Rai, food is meant to be shared and enjoyed together. You'll find the perfect mix of fresh
+                    herbs, savory broths, smoky grilled meats, bright sauces, and textures that keep every bite
+                    interesting.
                 </blockquote>
-                <p>
-                    Our Vietnamese tapas are designed for sharing, crafted to be savored slowly, 
-                    and paired perfectly with our selection of beers, sake, and refreshing drinks. 
-                    Come hungry, leave happy, and always stay awhile.
-                </p>
-            </div>
-            <div class="about-visual reveal">
-                <div class="about-video-container">
-                    <video autoplay muted loop playsinline controls poster="media&photos/Location and Hours.jpg" aria-label="Introduction video showcasing Lai Rai restaurant concept, Vietnamese tapas, and dining atmosphere">
-                        <source src="media&photos/Video introduction and concept explanation.mp4" type="video/mp4">
-                        <p>Your browser does not support the video. <a href="media&photos/Video introduction and concept explanation.mp4">Download the video</a>.</p>
-                    </video>
-                </div>
-                <div class="about-decoration" aria-hidden="true"></div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Menu Section -->
-    <section class="menu" id="menu" aria-labelledby="menu-heading">
-        <div class="menu-header reveal">
-            <h2 class="section-title" id="menu-heading">Our Menu</h2>
-            <p class="section-subtitle">Vietnamese tapas crafted for sharing</p>
-        </div>
-        
-        <div class="menu-categories reveal" role="group" aria-label="Filter menu by category">
-            <button class="menu-category-btn active" data-category="all" aria-pressed="true">All</button>
-            <button class="menu-category-btn" data-category="appetizer" aria-pressed="false">Appetizers</button>
-            <button class="menu-category-btn" data-category="skewers" aria-pressed="false">Skewers</button>
-            <button class="menu-category-btn" data-category="escargot" aria-pressed="false">Escargot</button>
-            <button class="menu-category-btn" data-category="entree" aria-pressed="false">Entrees</button>
-            <button class="menu-category-btn" data-category="drinks" aria-pressed="false">Drinks</button>
-        </div>
-        
-        <!-- Live region announces filter changes to screen readers -->
-        <div class="sr-only" aria-live="polite" id="menu-status"></div>
-        
-        <div class="menu-grid" role="list" aria-label="Menu items">
-            <!-- Appetizers -->
-            <article class="menu-item show" data-category="appetizer" role="listitem">
-                <div class="menu-item-header">
-                    <div>
-                        <h3 class="menu-item-name">Crispy Tofu</h3>
-                        <p class="menu-item-name-viet" lang="vi">Đậu Hũ Chiên Sả Ớt</p>
-                    </div>
-                    <div class="menu-item-price"><span class="sr-only">Price: </span>$8</div>
-                </div>
-                <p class="menu-item-description">Fried tofu with lemongrass and chilies oil sauce</p>
-            </article>
-            
-            <article class="menu-item show" data-category="appetizer" role="listitem">
-                <div class="menu-item-header">
-                    <div>
-                        <h3 class="menu-item-name">Golden Fried Quail</h3>
-                        <p class="menu-item-name-viet" lang="vi">Chim Cút</p>
-                    </div>
-                    <div class="menu-item-price"><span class="sr-only">Price: </span>$7</div>
-                </div>
-                <p class="menu-item-description">Golden fried quail with special marinade and butter sauce</p>
-            </article>
-            
-            <article class="menu-item show" data-category="appetizer" role="listitem">
-                <div class="menu-item-header">
-                    <div>
-                        <h3 class="menu-item-name">Conch Mango Salad</h3>
-                        <p class="menu-item-name-viet" lang="vi">Gỏi Xoài</p>
-                    </div>
-                    <div class="menu-item-price"><span class="sr-only">Price: </span>$15</div>
-                </div>
-                <p class="menu-item-description">Fresh mango, Vietnamese coriander, sweet peppers, topped with fried shallots and peanuts, dressed in special citrus fish sauce</p>
-            </article>
-            
-            <article class="menu-item show" data-category="appetizer" role="listitem">
-                <div class="menu-item-header">
-                    <div>
-                        <h3 class="menu-item-name">Duck Balut</h3>
-                        <p class="menu-item-name-viet" lang="vi">Hột Vịt Lộn</p>
-                    </div>
-                    <div class="menu-item-price"><span class="sr-only">Price: </span>$7</div>
-                </div>
-                <p class="menu-item-description">Fertilized duck egg served with special salt and pepper (2 pieces)</p>
-            </article>
-            
-            <article class="menu-item show" data-category="appetizer" role="listitem">
-                <div class="menu-item-header">
-                    <div>
-                        <h3 class="menu-item-name">Balut with Tamarind</h3>
-                        <p class="menu-item-name-viet" lang="vi">Hột Vịt Lộn Rang Me</p>
-                    </div>
-                    <div class="menu-item-price"><span class="sr-only">Price: </span>$11</div>
-                </div>
-                <p class="menu-item-description">Fertilized duck egg sauté in tamarind sauce topped with fried garlic and peanuts (2 pieces)</p>
-            </article>
-            
-            <article class="menu-item show" data-category="appetizer" role="listitem">
-                <div class="menu-item-header">
-                    <div>
-                        <h3 class="menu-item-name">Fish Sauce Wings</h3>
-                        <p class="menu-item-name-viet" lang="vi">Cánh Gà Chiên Nước Mắm</p>
-                    </div>
-                    <div class="menu-item-price"><span class="sr-only">Price: </span>$9 / $17 / $25</div>
-                </div>
-                <p class="menu-item-description">Twice fried wings tossed in sweet, savory, and tangy fish sauce (4pc / 8pc / 12pc)</p>
-            </article>
-            
-            <article class="menu-item show" data-category="appetizer" role="listitem">
-                <div class="menu-item-header">
-                    <div>
-                        <h3 class="menu-item-name">Grilled Oysters</h3>
-                        <p class="menu-item-name-viet" lang="vi">Hào Nướng Mỡ Hành</p>
-                    </div>
-                    <div class="menu-item-price"><span class="sr-only">Price: </span>$6</div>
-                </div>
-                <p class="menu-item-description">Oyster grilled to perfection with Vietnamese scallion fish sauce, peanuts and fried shallots</p>
-            </article>
-            
-            <article class="menu-item show" data-category="appetizer" role="listitem">
-                <div class="menu-item-header">
-                    <div>
-                        <h3 class="menu-item-name">Cream Cheese Oysters</h3>
-                        <p class="menu-item-name-viet" lang="vi">Hào Nướng Phô Mai</p>
-                    </div>
-                    <div class="menu-item-price"><span class="sr-only">Price: </span>$6</div>
-                </div>
-                <p class="menu-item-description">Grilled oyster topped with house special cream cheese sauce</p>
-            </article>
-            
-            <article class="menu-item show" data-category="appetizer" role="listitem">
-                <div class="menu-item-header">
-                    <div>
-                        <h3 class="menu-item-name">Grilled Scallops</h3>
-                        <p class="menu-item-name-viet" lang="vi">Sò Điệp Nướng Trứng Cút</p>
-                    </div>
-                    <div class="menu-item-price"><span class="sr-only">Price: </span>$4.5</div>
-                </div>
-                <p class="menu-item-description">Grilled scallop with scallion fish sauce, quail egg, peanuts, and fried shallots</p>
-            </article>
-            
-            <!-- Skewers -->
-            <article class="menu-item" data-category="skewers" role="listitem">
-                <div class="menu-item-header">
-                    <div>
-                        <h3 class="menu-item-name">Filet Mignon Skewer</h3>
-                        <p class="menu-item-name-viet" lang="vi">Bò</p>
-                    </div>
-                    <div class="menu-item-price"><span class="sr-only">Price: </span>$6</div>
-                </div>
-                <p class="menu-item-description">Topped with sesame and green onions, grilled with garlic, ginger, lemongrass, and five spices</p>
-            </article>
-            
-            <article class="menu-item" data-category="skewers" role="listitem">
-                <div class="menu-item-header">
-                    <div>
-                        <h3 class="menu-item-name">Pork Belly Skewer</h3>
-                        <p class="menu-item-name-viet" lang="vi">Ba Rọi</p>
-                    </div>
-                    <div class="menu-item-price"><span class="sr-only">Price: </span>$4</div>
-                </div>
-                <p class="menu-item-description">Topped with green onions, grilled with special house marinade</p>
-            </article>
-            
-            <article class="menu-item" data-category="skewers" role="listitem">
-                <div class="menu-item-header">
-                    <div>
-                        <h3 class="menu-item-name">Chicken Skewer</h3>
-                        <p class="menu-item-name-viet" lang="vi">Gà</p>
-                    </div>
-                    <div class="menu-item-price"><span class="sr-only">Price: </span>$4</div>
-                </div>
-                <p class="menu-item-description">Topped with sesame and green onions</p>
-            </article>
-            
-            <article class="menu-item" data-category="skewers" role="listitem">
-                <div class="menu-item-header">
-                    <div>
-                        <h3 class="menu-item-name">Prawn Skewer</h3>
-                        <p class="menu-item-name-viet" lang="vi">Tôm</p>
-                    </div>
-                    <div class="menu-item-price"><span class="sr-only">Price: </span>$5</div>
-                </div>
-                <p class="menu-item-description">Topped with green onions</p>
-            </article>
-            
-            <article class="menu-item" data-category="skewers" role="listitem">
-                <div class="menu-item-header">
-                    <div>
-                        <h3 class="menu-item-name">Chicken Hearts Skewer</h3>
-                        <p class="menu-item-name-viet" lang="vi">Tim Gà</p>
-                    </div>
-                    <div class="menu-item-price"><span class="sr-only">Price: </span>$3.5</div>
-                </div>
-                <p class="menu-item-description">Topped with green onions</p>
-            </article>
-            
-            <article class="menu-item" data-category="skewers" role="listitem">
-                <div class="menu-item-header">
-                    <div>
-                        <h3 class="menu-item-name">Chicken Gizzard Skewer</h3>
-                        <p class="menu-item-name-viet" lang="vi">Mề Gà</p>
-                    </div>
-                    <div class="menu-item-price"><span class="sr-only">Price: </span>$3.5</div>
-                </div>
-                <p class="menu-item-description">Topped with green onions</p>
-            </article>
-            
-            <!-- Escargot -->
-            <article class="menu-item" data-category="escargot" role="listitem">
-                <div class="menu-item-header">
-                    <div>
-                        <h3 class="menu-item-name">Escargot in Coconut</h3>
-                        <p class="menu-item-name-viet" lang="vi">Ốc Len Xào Dừa</p>
-                    </div>
-                    <div class="menu-item-price"><span class="sr-only">Price: </span>$14</div>
-                </div>
-                <p class="menu-item-description">Escargot in a fragrant, creamy sweet-savory lemongrass sauce</p>
-            </article>
-            
-            <article class="menu-item" data-category="escargot" role="listitem">
-                <div class="menu-item-header">
-                    <div>
-                        <h3 class="menu-item-name">Steamed Clams</h3>
-                        <p class="menu-item-name-viet" lang="vi">Nghêu Hấp Sả</p>
-                    </div>
-                    <div class="menu-item-price"><span class="sr-only">Price: </span>$13</div>
-                </div>
-                <p class="menu-item-description">Steamed clams with savory fragrance lemongrass broth</p>
-            </article>
-            
-            <article class="menu-item" data-category="escargot" role="listitem">
-                <div class="menu-item-header">
-                    <div>
-                        <h3 class="menu-item-name">Thai-Style Clams</h3>
-                        <p class="menu-item-name-viet" lang="vi">Nghêu Hấp Thái</p>
-                    </div>
-                    <div class="menu-item-price"><span class="sr-only">Price: </span>$15</div>
-                </div>
-                <p class="menu-item-description">Tom yum broth with lemongrass, lime leaves, shallots, garlic, and herbs</p>
-            </article>
-            
-            <article class="menu-item" data-category="escargot" role="listitem">
-                <div class="menu-item-header">
-                    <div>
-                        <h3 class="menu-item-name">Spotted Escargot Salted Egg</h3>
-                        <p class="menu-item-name-viet" lang="vi">Ốc Hương Trứng Muối</p>
-                    </div>
-                    <div class="menu-item-price"><span class="sr-only">Price: </span>$17</div>
-                </div>
-                <p class="menu-item-description">Spotted escargot coated in rich, creamy, sweet salted egg yolk sauce</p>
-            </article>
-            
-            <article class="menu-item" data-category="escargot" role="listitem">
-                <div class="menu-item-header">
-                    <div>
-                        <h3 class="menu-item-name">Escargot Garlic Butter</h3>
-                        <p class="menu-item-name-viet" lang="vi">Ốc Hương Bơ Tỏi</p>
-                    </div>
-                    <div class="menu-item-price"><span class="sr-only">Price: </span>$16</div>
-                </div>
-                <p class="menu-item-description">Succulent Canadian Whelk simmered in luscious, buttery garlic sauce</p>
-            </article>
-            
-            <article class="menu-item" data-category="escargot" role="listitem">
-                <div class="menu-item-header">
-                    <div>
-                        <h3 class="menu-item-name">Escargot Tamarind</h3>
-                        <p class="menu-item-name-viet" lang="vi">Ốc Hương Rang Me</p>
-                    </div>
-                    <div class="menu-item-price"><span class="sr-only">Price: </span>$16</div>
-                </div>
-                <p class="menu-item-description">Spotted escargot in sweet-tangy tamarind sauce with fragrant fried garlic</p>
-            </article>
-            
-            <article class="menu-item" data-category="escargot" role="listitem">
-                <div class="menu-item-header">
-                    <div>
-                        <h3 class="menu-item-name">Moon Snails Garlic Butter</h3>
-                        <p class="menu-item-name-viet" lang="vi">Ốc Mỡ Bơ Tỏi</p>
-                    </div>
-                    <div class="menu-item-price"><span class="sr-only">Price: </span>$14</div>
-                </div>
-                <p class="menu-item-description">Succulent moon snail simmered in luscious, buttery garlic sauce</p>
-            </article>
-            
-            <article class="menu-item" data-category="escargot" role="listitem">
-                <div class="menu-item-header">
-                    <div>
-                        <h3 class="menu-item-name">Grilled Snails Pepper Butter</h3>
-                        <p class="menu-item-name-viet" lang="vi">Ốc Tỏi Nướng Bơ Tiêu</p>
-                    </div>
-                    <div class="menu-item-price"><span class="sr-only">Price: </span>$15</div>
-                </div>
-                <p class="menu-item-description">Smoky grilled snail in savory, buttery garlic sauce with cracked black pepper</p>
-            </article>
-            
-            <!-- Entrees -->
-            <article class="menu-item" data-category="entree" role="listitem">
-                <div class="menu-item-header">
-                    <div>
-                        <h3 class="menu-item-name">Sizzling Steak</h3>
-                        <p class="menu-item-name-viet" lang="vi">Bò Né</p>
-                    </div>
-                    <div class="menu-item-price"><span class="sr-only">Price: </span>$20</div>
-                </div>
-                <p class="menu-item-description">Sizzling filet mignon cutlets served with fried eggs, onions, pâtés, hot dogs, special sauce and bread sticks</p>
-            </article>
-            
-            <article class="menu-item" data-category="entree" role="listitem">
-                <div class="menu-item-header">
-                    <div>
-                        <h3 class="menu-item-name">Stir-Fried Macaroni</h3>
-                        <p class="menu-item-name-viet" lang="vi">Nui Xào Bò</p>
-                    </div>
-                    <div class="menu-item-price"><span class="sr-only">Price: </span>$19</div>
-                </div>
-                <p class="menu-item-description">Stirred fried macaroni with filet mignon, Gai Lan, carrots, topped with sunny side egg</p>
-            </article>
-            
-            <article class="menu-item" data-category="entree" role="listitem">
-                <div class="menu-item-header">
-                    <div>
-                        <h3 class="menu-item-name">Stir-Fried Ramen</h3>
-                        <p class="menu-item-name-viet" lang="vi">Mì Xào Bò</p>
-                    </div>
-                    <div class="menu-item-price"><span class="sr-only">Price: </span>$18</div>
-                </div>
-                <p class="menu-item-description">Stir-fried ramen noodles with filet mignon, Gai Lan, and carrots</p>
-            </article>
-            
-            <article class="menu-item" data-category="entree" role="listitem">
-                <div class="menu-item-header">
-                    <div>
-                        <h3 class="menu-item-name">Hong Kong Lobster</h3>
-                        <p class="menu-item-name-viet" lang="vi">Tom Hung Muoi Hong Kong</p>
-                    </div>
-                    <div class="menu-item-price"><span class="sr-only">Price: </span>$28</div>
-                </div>
-                <p class="menu-item-description">Lobster tossed with special aromatic dried shrimps Hong Kong style salt and pepper</p>
-            </article>
-            
-            <!-- Drinks -->
-            <article class="menu-item" data-category="drinks" role="listitem">
-                <div class="menu-item-header">
-                    <div>
-                        <h3 class="menu-item-name">Beer Tower</h3>
-                        <p class="menu-item-name-viet">Corona 3L</p>
-                    </div>
-                    <div class="menu-item-price"><span class="sr-only">Price: </span>$45</div>
-                </div>
-                <p class="menu-item-description">Perfect for sharing with friends — 3 liters of ice-cold Corona</p>
-            </article>
-            
-            <article class="menu-item" data-category="drinks" role="listitem">
-                <div class="menu-item-header">
-                    <div>
-                        <h3 class="menu-item-name">Tiger Beer</h3>
-                        <p class="menu-item-name-viet" lang="vi">Bia Tiger</p>
-                    </div>
-                    <div class="menu-item-price"><span class="sr-only">Price: </span>$7 / $35</div>
-                </div>
-                <p class="menu-item-description">Single bottle or bucket of 6</p>
-            </article>
-            
-            <article class="menu-item" data-category="drinks" role="listitem">
-                <div class="menu-item-header">
-                    <div>
-                        <h3 class="menu-item-name">Corona on Tap</h3>
-                        <p class="menu-item-name-viet" lang="vi">Bia Tươi</p>
-                    </div>
-                    <div class="menu-item-price"><span class="sr-only">Price: </span>$7</div>
-                </div>
-                <p class="menu-item-description">Fresh draft Corona by the glass</p>
-            </article>
-            
-            <article class="menu-item" data-category="drinks" role="listitem">
-                <div class="menu-item-header">
-                    <div>
-                        <h3 class="menu-item-name">Lychee Soju</h3>
-                        <p class="menu-item-name-viet" lang="vi">Soju Vải</p>
-                    </div>
-                    <div class="menu-item-price"><span class="sr-only">Price: </span>$14</div>
-                </div>
-                <p class="menu-item-description">Sweet and refreshing lychee-flavored soju</p>
-            </article>
-            
-            <article class="menu-item" data-category="drinks" role="listitem">
-                <div class="menu-item-header">
-                    <div>
-                        <h3 class="menu-item-name">Nigori Sake</h3>
-                        <p class="menu-item-name-viet" lang="vi">Rượu Sake</p>
-                    </div>
-                    <div class="menu-item-price"><span class="sr-only">Price: </span>$15</div>
-                </div>
-                <p class="menu-item-description">Creamy unfiltered Japanese sake</p>
-            </article>
-            
-            <article class="menu-item" data-category="drinks" role="listitem">
-                <div class="menu-item-header">
-                    <div>
-                        <h3 class="menu-item-name">Tamarind Drink</h3>
-                        <p class="menu-item-name-viet" lang="vi">Nước Đá Me</p>
-                    </div>
-                    <div class="menu-item-price"><span class="sr-only">Price: </span>$7</div>
-                </div>
-                <p class="menu-item-description">Sweet and tangy Vietnamese tamarind refresher</p>
-            </article>
-            
-            <article class="menu-item" data-category="drinks" role="listitem">
-                <div class="menu-item-header">
-                    <div>
-                        <h3 class="menu-item-name">Kumquat Tea</h3>
-                        <p class="menu-item-name-viet" lang="vi">Trà Tắc</p>
-                    </div>
-                    <div class="menu-item-price"><span class="sr-only">Price: </span>$6</div>
-                </div>
-                <p class="menu-item-description">Refreshing citrus tea</p>
-            </article>
-            
-            <article class="menu-item" data-category="drinks" role="listitem">
-                <div class="menu-item-header">
-                    <div>
-                        <h3 class="menu-item-name">Passionfruit Tea</h3>
-                        <p class="menu-item-name-viet" lang="vi">Trà Chanh Giây</p>
-                    </div>
-                    <div class="menu-item-price"><span class="sr-only">Price: </span>$6</div>
-                </div>
-                <p class="menu-item-description">Tropical passionfruit iced tea</p>
-            </article>
-        </div>
-        
-        <div class="menu-cta reveal">
-            <a href="https://www.toasttab.com/local/order/lairai/r-34a7783e-0721-4742-af85-1f6a82c9e55f?diningOption=takeout" class="btn btn-primary" target="_blank" rel="noopener noreferrer">
-                <i class="fas fa-shopping-bag" aria-hidden="true"></i> Order for Pickup<span class="sr-only"> (opens in new tab)</span>
-            </a>
-        </div>
-    </section>
-
-    <!-- Location Section -->
-    <section class="location" id="location" aria-labelledby="location-heading">
-        <div class="location-container">
-            <div class="location-content reveal">
-                <h2 id="location-heading">Visit Us</h2>
-                
-                <div class="location-info">
-                    <div class="location-info-item">
-                        <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
-                        <div>
-                            <h4>Location</h4>
-                            <address style="font-style: normal;">
-                                6467 Stirling Road<br>Davie, Florida 33314<br><em>(in Carriage Hills Plaza)</em>
-                            </address>
-                        </div>
-                    </div>
-                    
-                    <div class="location-info-item">
-                        <i class="fas fa-clock" aria-hidden="true"></i>
-                        <div>
-                            <h4>Hours</h4>
-                            <table class="hours-grid" role="table" aria-label="Business hours">
-                                <tr class="hours-row">
-                                    <td>Tuesday – Friday</td>
-                                    <td>5 PM – 10:30 PM</td>
-                                </tr>
-                                <tr class="hours-row">
-                                    <td>Saturday – Monday</td>
-                                    <td>11 AM – 10:30 PM</td>
-                                </tr>
-                            </table>
-                        </div>
-                    </div>
-                    
-                    <div class="location-info-item">
-                        <i class="fas fa-phone" aria-hidden="true"></i>
-                        <div>
-                            <h4>Phone</h4>
-                            <p><a href="tel:+17542223388" style="color: rgba(247, 243, 235, 0.95); text-decoration: none;">(754) 222-3388</a></p>
-                        </div>
-                    </div>
-                    
-                    <div class="location-info-item">
-                        <i class="fas fa-utensils" aria-hidden="true"></i>
-                        <div>
-                            <h4>Dining Options</h4>
-                            <p>Dine-in • Takeout • Online Ordering</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <a href="https://www.google.com/maps/place/Lai+Rai/data=!4m2!3m1!1s0x0:0x1ac0fce74a146d6f" class="btn btn-secondary" target="_blank" rel="noopener noreferrer" style="border-color: var(--gold); color: var(--gold);">
-                    <i class="fas fa-directions" aria-hidden="true"></i> Get Directions<span class="sr-only"> (opens in new tab)</span>
+                <a href="https://www.yelp.com/biz/lai-rai-davie" class="proof-link" target="_blank"
+                    rel="noopener noreferrer">
+                    Read Reviews on Yelp <i class="fas fa-arrow-right" aria-hidden="true"></i><span class="sr-only">
+                        (opens in new tab)</span>
                 </a>
             </div>
-            
-            <div class="location-map reveal">
-                <iframe 
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3583.1!2d-80.2!3d26.07!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88d9a9003a055c7f%3A0x1ac0fce74a146d6f!2sLai%20Rai!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus" 
-                    allowfullscreen="" 
-                    loading="lazy" 
-                    referrerpolicy="no-referrer-when-downgrade"
-                    title="Google Maps showing Lai Rai restaurant location at 6467 Stirling Road, Davie, Florida">
-                </iframe>
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Contact / Social Section -->
-    <section class="contact" id="contact" aria-labelledby="contact-heading">
-        <div class="contact-header reveal">
-            <h2 class="section-title" id="contact-heading">Stay Connected</h2>
-            <p class="section-subtitle">Follow our journey and join the lai rai family</p>
-        </div>
-        
-        <div class="social-links reveal" role="list" aria-label="Social media links">
-            <a href="https://www.instagram.com/lairaiofficial/" class="social-link" target="_blank" rel="noopener noreferrer" role="listitem" aria-label="Follow Lai Rai on Instagram (opens in new tab)">
-                <i class="fab fa-instagram" aria-hidden="true"></i>
-                <span>Instagram</span>
-            </a>
-            <a href="https://www.facebook.com/lairaiofficial" class="social-link" target="_blank" rel="noopener noreferrer" role="listitem" aria-label="Follow Lai Rai on Facebook (opens in new tab)">
-                <i class="fab fa-facebook" aria-hidden="true"></i>
-                <span>Facebook</span>
-            </a>
-            <a href="https://www.google.com/search?q=lai+rai#lrd=0x88d9a9003a055c7f:0x1ac0fce74a146d6f,1" class="social-link" target="_blank" rel="noopener noreferrer" role="listitem" aria-label="Read Lai Rai reviews on Google (opens in new tab)">
-                <i class="fab fa-google" aria-hidden="true"></i>
-                <span>Reviews</span>
-            </a>
-        </div>
-        
-        <div class="reveal">
-            <a href="https://www.toasttab.com/local/order/lairai/r-34a7783e-0721-4742-af85-1f6a82c9e55f?diningOption=takeout" class="btn btn-primary" target="_blank" rel="noopener noreferrer">
-                <i class="fas fa-shopping-bag" aria-hidden="true"></i> Order Online Now<span class="sr-only"> (opens in new tab)</span>
-            </a>
-        </div>
-    </section>
+        <!-- About Section -->
+        <section class="about" id="about" aria-labelledby="about-heading">
+            <div class="about-container">
+                <div class="about-content reveal">
+                    <h2 id="about-heading">
+                        What is Lai Rai?
+                        <span lang="vi">làm lai rai</span>
+                    </h2>
+                    <p>
+                        <strong lang="vi">Lai rai</strong> is more than a phrase — it's a way of life. In Vietnamese
+                        culture,
+                        it means to do something slowly, "bit by bit," stretching a quick gathering into
+                        hours of enjoyment with the people who matter most.
+                    </p>
+                    <p>
+                        It's the art of nursing a cold beer while sharing crispy quail and grilled skewers.
+                        It's conversations that flow as freely as the tamarind sauce. It's staying just
+                        one more hour because the company is that good.
+                    </p>
+                    <blockquote class="vietnamese-text">
+                        <span lang="vi">"Let's nhậu!"</span> — The Vietnamese art of drinking and dining together
+                    </blockquote>
+                    <p>
+                        Our Vietnamese tapas are designed for sharing, crafted to be savored slowly,
+                        and paired perfectly with our selection of beers, sake, and refreshing drinks.
+                        Come hungry, leave happy, and always stay awhile.
+                    </p>
+                </div>
+                <div class="about-visual reveal">
+                    <div class="about-video-container">
+                        <video autoplay muted loop playsinline controls poster="media&photos/Location and Hours.jpg"
+                            aria-label="Introduction video showcasing Lai Rai restaurant concept, Vietnamese tapas, and dining atmosphere">
+                            <source src="media&photos/Video introduction and concept explanation.mp4" type="video/mp4">
+                            <p>Your browser does not support the video. <a
+                                    href="media&photos/Video introduction and concept explanation.mp4">Download the
+                                    video</a>.</p>
+                        </video>
+                    </div>
+                    <div class="about-decoration" aria-hidden="true"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Menu Section -->
+        <section class="menu" id="menu" aria-labelledby="menu-heading">
+            <div class="menu-header reveal">
+                <h2 class="section-title gradient-title" id="menu-heading">Our Menu</h2>
+                <p class="section-subtitle">Vietnamese tapas crafted for sharing</p>
+            </div>
+
+            <div class="menu-categories reveal" role="group" aria-label="Filter menu by category">
+                <button class="menu-category-btn active" data-category="all" aria-pressed="true">All</button>
+                <button class="menu-category-btn" data-category="appetizer" aria-pressed="false">Appetizers</button>
+                <button class="menu-category-btn" data-category="skewers" aria-pressed="false">Skewers</button>
+                <button class="menu-category-btn" data-category="escargot" aria-pressed="false">Escargot</button>
+                <button class="menu-category-btn" data-category="entree" aria-pressed="false">Entrees</button>
+                <button class="menu-category-btn" data-category="drinks" aria-pressed="false">Drinks</button>
+            </div>
+
+            <!-- Live region announces filter changes to screen readers -->
+            <div class="sr-only" aria-live="polite" id="menu-status"></div>
+
+            <div class="menu-grid" role="list" aria-label="Menu items">
+                <!-- Appetizers -->
+                <article class="menu-item show" data-category="appetizer" role="listitem">
+                    <div class="menu-item-header">
+                        <div>
+                            <h3 class="menu-item-name">Crispy Tofu</h3>
+                            <p class="menu-item-name-viet" lang="vi">Đậu Hũ Chiên Sả Ớt</p>
+                        </div>
+                        <div class="menu-item-price"><span class="sr-only">Price: </span>$8</div>
+                    </div>
+                    <p class="menu-item-description">Fried tofu with lemongrass and chilies oil sauce</p>
+                </article>
+
+                <article class="menu-item show" data-category="appetizer" role="listitem">
+                    <div class="menu-item-header">
+                        <div>
+                            <h3 class="menu-item-name">Golden Fried Quail</h3>
+                            <p class="menu-item-name-viet" lang="vi">Chim Cút</p>
+                        </div>
+                        <div class="menu-item-price"><span class="sr-only">Price: </span>$7</div>
+                    </div>
+                    <p class="menu-item-description">Golden fried quail with special marinade and butter sauce</p>
+                </article>
+
+                <article class="menu-item show" data-category="appetizer" role="listitem">
+                    <div class="menu-item-header">
+                        <div>
+                            <h3 class="menu-item-name">Conch Mango Salad</h3>
+                            <p class="menu-item-name-viet" lang="vi">Gỏi Xoài</p>
+                        </div>
+                        <div class="menu-item-price"><span class="sr-only">Price: </span>$15</div>
+                    </div>
+                    <p class="menu-item-description">Fresh mango, Vietnamese coriander, sweet peppers, topped with fried
+                        shallots and peanuts, dressed in special citrus fish sauce</p>
+                </article>
+
+                <article class="menu-item show" data-category="appetizer" role="listitem">
+                    <div class="menu-item-header">
+                        <div>
+                            <h3 class="menu-item-name">Duck Balut</h3>
+                            <p class="menu-item-name-viet" lang="vi">Hột Vịt Lộn</p>
+                        </div>
+                        <div class="menu-item-price"><span class="sr-only">Price: </span>$7</div>
+                    </div>
+                    <p class="menu-item-description">Fertilized duck egg served with special salt and pepper (2 pieces)
+                    </p>
+                </article>
+
+                <article class="menu-item show" data-category="appetizer" role="listitem">
+                    <div class="menu-item-header">
+                        <div>
+                            <h3 class="menu-item-name">Balut with Tamarind</h3>
+                            <p class="menu-item-name-viet" lang="vi">Hột Vịt Lộn Rang Me</p>
+                        </div>
+                        <div class="menu-item-price"><span class="sr-only">Price: </span>$11</div>
+                    </div>
+                    <p class="menu-item-description">Fertilized duck egg sauté in tamarind sauce topped with fried
+                        garlic and peanuts (2 pieces)</p>
+                </article>
+
+                <article class="menu-item show" data-category="appetizer" role="listitem">
+                    <div class="menu-item-header">
+                        <div>
+                            <h3 class="menu-item-name">Fish Sauce Wings</h3>
+                            <p class="menu-item-name-viet" lang="vi">Cánh Gà Chiên Nước Mắm</p>
+                        </div>
+                        <div class="menu-item-price"><span class="sr-only">Price: </span>$9 / $17 / $25</div>
+                    </div>
+                    <p class="menu-item-description">Twice fried wings tossed in sweet, savory, and tangy fish sauce
+                        (4pc / 8pc / 12pc)</p>
+                </article>
+
+                <article class="menu-item show" data-category="appetizer" role="listitem">
+                    <div class="menu-item-header">
+                        <div>
+                            <h3 class="menu-item-name">Grilled Oysters</h3>
+                            <p class="menu-item-name-viet" lang="vi">Hào Nướng Mỡ Hành</p>
+                        </div>
+                        <div class="menu-item-price"><span class="sr-only">Price: </span>$6</div>
+                    </div>
+                    <p class="menu-item-description">Oyster grilled to perfection with Vietnamese scallion fish sauce,
+                        peanuts and fried shallots</p>
+                </article>
+
+                <article class="menu-item show" data-category="appetizer" role="listitem">
+                    <div class="menu-item-header">
+                        <div>
+                            <h3 class="menu-item-name">Cream Cheese Oysters</h3>
+                            <p class="menu-item-name-viet" lang="vi">Hào Nướng Phô Mai</p>
+                        </div>
+                        <div class="menu-item-price"><span class="sr-only">Price: </span>$6</div>
+                    </div>
+                    <p class="menu-item-description">Grilled oyster topped with house special cream cheese sauce</p>
+                </article>
+
+                <article class="menu-item show" data-category="appetizer" role="listitem">
+                    <div class="menu-item-header">
+                        <div>
+                            <h3 class="menu-item-name">Grilled Scallops</h3>
+                            <p class="menu-item-name-viet" lang="vi">Sò Điệp Nướng Trứng Cút</p>
+                        </div>
+                        <div class="menu-item-price"><span class="sr-only">Price: </span>$4.5</div>
+                    </div>
+                    <p class="menu-item-description">Grilled scallop with scallion fish sauce, quail egg, peanuts, and
+                        fried shallots</p>
+                </article>
+
+                <!-- Skewers -->
+                <article class="menu-item" data-category="skewers" role="listitem">
+                    <div class="menu-item-header">
+                        <div>
+                            <h3 class="menu-item-name">Filet Mignon Skewer</h3>
+                            <p class="menu-item-name-viet" lang="vi">Bò</p>
+                        </div>
+                        <div class="menu-item-price"><span class="sr-only">Price: </span>$6</div>
+                    </div>
+                    <p class="menu-item-description">Topped with sesame and green onions, grilled with garlic, ginger,
+                        lemongrass, and five spices</p>
+                </article>
+
+                <article class="menu-item" data-category="skewers" role="listitem">
+                    <div class="menu-item-header">
+                        <div>
+                            <h3 class="menu-item-name">Pork Belly Skewer</h3>
+                            <p class="menu-item-name-viet" lang="vi">Ba Rọi</p>
+                        </div>
+                        <div class="menu-item-price"><span class="sr-only">Price: </span>$4</div>
+                    </div>
+                    <p class="menu-item-description">Topped with green onions, grilled with special house marinade</p>
+                </article>
+
+                <article class="menu-item" data-category="skewers" role="listitem">
+                    <div class="menu-item-header">
+                        <div>
+                            <h3 class="menu-item-name">Chicken Skewer</h3>
+                            <p class="menu-item-name-viet" lang="vi">Gà</p>
+                        </div>
+                        <div class="menu-item-price"><span class="sr-only">Price: </span>$4</div>
+                    </div>
+                    <p class="menu-item-description">Topped with sesame and green onions</p>
+                </article>
+
+                <article class="menu-item" data-category="skewers" role="listitem">
+                    <div class="menu-item-header">
+                        <div>
+                            <h3 class="menu-item-name">Prawn Skewer</h3>
+                            <p class="menu-item-name-viet" lang="vi">Tôm</p>
+                        </div>
+                        <div class="menu-item-price"><span class="sr-only">Price: </span>$5</div>
+                    </div>
+                    <p class="menu-item-description">Topped with green onions</p>
+                </article>
+
+                <article class="menu-item" data-category="skewers" role="listitem">
+                    <div class="menu-item-header">
+                        <div>
+                            <h3 class="menu-item-name">Chicken Hearts Skewer</h3>
+                            <p class="menu-item-name-viet" lang="vi">Tim Gà</p>
+                        </div>
+                        <div class="menu-item-price"><span class="sr-only">Price: </span>$3.5</div>
+                    </div>
+                    <p class="menu-item-description">Topped with green onions</p>
+                </article>
+
+                <article class="menu-item" data-category="skewers" role="listitem">
+                    <div class="menu-item-header">
+                        <div>
+                            <h3 class="menu-item-name">Chicken Gizzard Skewer</h3>
+                            <p class="menu-item-name-viet" lang="vi">Mề Gà</p>
+                        </div>
+                        <div class="menu-item-price"><span class="sr-only">Price: </span>$3.5</div>
+                    </div>
+                    <p class="menu-item-description">Topped with green onions</p>
+                </article>
+
+                <!-- Escargot -->
+                <article class="menu-item" data-category="escargot" role="listitem">
+                    <div class="menu-item-header">
+                        <div>
+                            <h3 class="menu-item-name">Escargot in Coconut</h3>
+                            <p class="menu-item-name-viet" lang="vi">Ốc Len Xào Dừa</p>
+                        </div>
+                        <div class="menu-item-price"><span class="sr-only">Price: </span>$14</div>
+                    </div>
+                    <p class="menu-item-description">Escargot in a fragrant, creamy sweet-savory lemongrass sauce</p>
+                </article>
+
+                <article class="menu-item" data-category="escargot" role="listitem">
+                    <div class="menu-item-header">
+                        <div>
+                            <h3 class="menu-item-name">Steamed Clams</h3>
+                            <p class="menu-item-name-viet" lang="vi">Nghêu Hấp Sả</p>
+                        </div>
+                        <div class="menu-item-price"><span class="sr-only">Price: </span>$13</div>
+                    </div>
+                    <p class="menu-item-description">Steamed clams with savory fragrance lemongrass broth</p>
+                </article>
+
+                <article class="menu-item" data-category="escargot" role="listitem">
+                    <div class="menu-item-header">
+                        <div>
+                            <h3 class="menu-item-name">Thai-Style Clams</h3>
+                            <p class="menu-item-name-viet" lang="vi">Nghêu Hấp Thái</p>
+                        </div>
+                        <div class="menu-item-price"><span class="sr-only">Price: </span>$15</div>
+                    </div>
+                    <p class="menu-item-description">Tom yum broth with lemongrass, lime leaves, shallots, garlic, and
+                        herbs</p>
+                </article>
+
+                <article class="menu-item" data-category="escargot" role="listitem">
+                    <div class="menu-item-header">
+                        <div>
+                            <h3 class="menu-item-name">Spotted Escargot Salted Egg</h3>
+                            <p class="menu-item-name-viet" lang="vi">Ốc Hương Trứng Muối</p>
+                        </div>
+                        <div class="menu-item-price"><span class="sr-only">Price: </span>$17</div>
+                    </div>
+                    <p class="menu-item-description">Spotted escargot coated in rich, creamy, sweet salted egg yolk
+                        sauce</p>
+                </article>
+
+                <article class="menu-item" data-category="escargot" role="listitem">
+                    <div class="menu-item-header">
+                        <div>
+                            <h3 class="menu-item-name">Escargot Garlic Butter</h3>
+                            <p class="menu-item-name-viet" lang="vi">Ốc Hương Bơ Tỏi</p>
+                        </div>
+                        <div class="menu-item-price"><span class="sr-only">Price: </span>$16</div>
+                    </div>
+                    <p class="menu-item-description">Succulent Canadian Whelk simmered in luscious, buttery garlic sauce
+                    </p>
+                </article>
+
+                <article class="menu-item" data-category="escargot" role="listitem">
+                    <div class="menu-item-header">
+                        <div>
+                            <h3 class="menu-item-name">Escargot Tamarind</h3>
+                            <p class="menu-item-name-viet" lang="vi">Ốc Hương Rang Me</p>
+                        </div>
+                        <div class="menu-item-price"><span class="sr-only">Price: </span>$16</div>
+                    </div>
+                    <p class="menu-item-description">Spotted escargot in sweet-tangy tamarind sauce with fragrant fried
+                        garlic</p>
+                </article>
+
+                <article class="menu-item" data-category="escargot" role="listitem">
+                    <div class="menu-item-header">
+                        <div>
+                            <h3 class="menu-item-name">Moon Snails Garlic Butter</h3>
+                            <p class="menu-item-name-viet" lang="vi">Ốc Mỡ Bơ Tỏi</p>
+                        </div>
+                        <div class="menu-item-price"><span class="sr-only">Price: </span>$14</div>
+                    </div>
+                    <p class="menu-item-description">Succulent moon snail simmered in luscious, buttery garlic sauce</p>
+                </article>
+
+                <article class="menu-item" data-category="escargot" role="listitem">
+                    <div class="menu-item-header">
+                        <div>
+                            <h3 class="menu-item-name">Grilled Snails Pepper Butter</h3>
+                            <p class="menu-item-name-viet" lang="vi">Ốc Tỏi Nướng Bơ Tiêu</p>
+                        </div>
+                        <div class="menu-item-price"><span class="sr-only">Price: </span>$15</div>
+                    </div>
+                    <p class="menu-item-description">Smoky grilled snail in savory, buttery garlic sauce with cracked
+                        black pepper</p>
+                </article>
+
+                <!-- Entrees -->
+                <article class="menu-item" data-category="entree" role="listitem">
+                    <div class="menu-item-header">
+                        <div>
+                            <h3 class="menu-item-name">Sizzling Steak</h3>
+                            <p class="menu-item-name-viet" lang="vi">Bò Né</p>
+                        </div>
+                        <div class="menu-item-price"><span class="sr-only">Price: </span>$20</div>
+                    </div>
+                    <p class="menu-item-description">Sizzling filet mignon cutlets served with fried eggs, onions,
+                        pâtés, hot dogs, special sauce and bread sticks</p>
+                </article>
+
+                <article class="menu-item" data-category="entree" role="listitem">
+                    <div class="menu-item-header">
+                        <div>
+                            <h3 class="menu-item-name">Stir-Fried Macaroni</h3>
+                            <p class="menu-item-name-viet" lang="vi">Nui Xào Bò</p>
+                        </div>
+                        <div class="menu-item-price"><span class="sr-only">Price: </span>$19</div>
+                    </div>
+                    <p class="menu-item-description">Stirred fried macaroni with filet mignon, Gai Lan, carrots, topped
+                        with sunny side egg</p>
+                </article>
+
+                <article class="menu-item" data-category="entree" role="listitem">
+                    <div class="menu-item-header">
+                        <div>
+                            <h3 class="menu-item-name">Stir-Fried Ramen</h3>
+                            <p class="menu-item-name-viet" lang="vi">Mì Xào Bò</p>
+                        </div>
+                        <div class="menu-item-price"><span class="sr-only">Price: </span>$18</div>
+                    </div>
+                    <p class="menu-item-description">Stir-fried ramen noodles with filet mignon, Gai Lan, and carrots
+                    </p>
+                </article>
+
+                <article class="menu-item" data-category="entree" role="listitem">
+                    <div class="menu-item-header">
+                        <div>
+                            <h3 class="menu-item-name">Hong Kong Lobster</h3>
+                            <p class="menu-item-name-viet" lang="vi">Tom Hung Muoi Hong Kong</p>
+                        </div>
+                        <div class="menu-item-price"><span class="sr-only">Price: </span>$28</div>
+                    </div>
+                    <p class="menu-item-description">Lobster tossed with special aromatic dried shrimps Hong Kong style
+                        salt and pepper</p>
+                </article>
+
+                <!-- Drinks -->
+                <article class="menu-item" data-category="drinks" role="listitem">
+                    <div class="menu-item-header">
+                        <div>
+                            <h3 class="menu-item-name">Beer Tower</h3>
+                            <p class="menu-item-name-viet">Corona 3L</p>
+                        </div>
+                        <div class="menu-item-price"><span class="sr-only">Price: </span>$45</div>
+                    </div>
+                    <p class="menu-item-description">Perfect for sharing with friends — 3 liters of ice-cold Corona</p>
+                </article>
+
+                <article class="menu-item" data-category="drinks" role="listitem">
+                    <div class="menu-item-header">
+                        <div>
+                            <h3 class="menu-item-name">Tiger Beer</h3>
+                            <p class="menu-item-name-viet" lang="vi">Bia Tiger</p>
+                        </div>
+                        <div class="menu-item-price"><span class="sr-only">Price: </span>$7 / $35</div>
+                    </div>
+                    <p class="menu-item-description">Single bottle or bucket of 6</p>
+                </article>
+
+                <article class="menu-item" data-category="drinks" role="listitem">
+                    <div class="menu-item-header">
+                        <div>
+                            <h3 class="menu-item-name">Corona on Tap</h3>
+                            <p class="menu-item-name-viet" lang="vi">Bia Tươi</p>
+                        </div>
+                        <div class="menu-item-price"><span class="sr-only">Price: </span>$7</div>
+                    </div>
+                    <p class="menu-item-description">Fresh draft Corona by the glass</p>
+                </article>
+
+                <article class="menu-item" data-category="drinks" role="listitem">
+                    <div class="menu-item-header">
+                        <div>
+                            <h3 class="menu-item-name">Lychee Soju</h3>
+                            <p class="menu-item-name-viet" lang="vi">Soju Vải</p>
+                        </div>
+                        <div class="menu-item-price"><span class="sr-only">Price: </span>$14</div>
+                    </div>
+                    <p class="menu-item-description">Sweet and refreshing lychee-flavored soju</p>
+                </article>
+
+                <article class="menu-item" data-category="drinks" role="listitem">
+                    <div class="menu-item-header">
+                        <div>
+                            <h3 class="menu-item-name">Nigori Sake</h3>
+                            <p class="menu-item-name-viet" lang="vi">Rượu Sake</p>
+                        </div>
+                        <div class="menu-item-price"><span class="sr-only">Price: </span>$15</div>
+                    </div>
+                    <p class="menu-item-description">Creamy unfiltered Japanese sake</p>
+                </article>
+
+                <article class="menu-item" data-category="drinks" role="listitem">
+                    <div class="menu-item-header">
+                        <div>
+                            <h3 class="menu-item-name">Tamarind Drink</h3>
+                            <p class="menu-item-name-viet" lang="vi">Nước Đá Me</p>
+                        </div>
+                        <div class="menu-item-price"><span class="sr-only">Price: </span>$7</div>
+                    </div>
+                    <p class="menu-item-description">Sweet and tangy Vietnamese tamarind refresher</p>
+                </article>
+
+                <article class="menu-item" data-category="drinks" role="listitem">
+                    <div class="menu-item-header">
+                        <div>
+                            <h3 class="menu-item-name">Kumquat Tea</h3>
+                            <p class="menu-item-name-viet" lang="vi">Trà Tắc</p>
+                        </div>
+                        <div class="menu-item-price"><span class="sr-only">Price: </span>$6</div>
+                    </div>
+                    <p class="menu-item-description">Refreshing citrus tea</p>
+                </article>
+
+                <article class="menu-item" data-category="drinks" role="listitem">
+                    <div class="menu-item-header">
+                        <div>
+                            <h3 class="menu-item-name">Passionfruit Tea</h3>
+                            <p class="menu-item-name-viet" lang="vi">Trà Chanh Giây</p>
+                        </div>
+                        <div class="menu-item-price"><span class="sr-only">Price: </span>$6</div>
+                    </div>
+                    <p class="menu-item-description">Tropical passionfruit iced tea</p>
+                </article>
+            </div>
+
+            <div class="menu-cta reveal">
+                <a href="https://www.toasttab.com/local/order/lairai/r-34a7783e-0721-4742-af85-1f6a82c9e55f?diningOption=takeout"
+                    class="btn btn-primary" target="_blank" rel="noopener noreferrer">
+                    <i class="fas fa-shopping-bag" aria-hidden="true"></i> Order for Pickup<span class="sr-only"> (opens
+                        in new tab)</span>
+                </a>
+            </div>
+        </section>
+
+        <!-- Photo Gallery Section -->
+        <section class="gallery" id="gallery" aria-labelledby="gallery-heading">
+            <div class="gallery-header reveal">
+                <h2 class="section-title gradient-title" id="gallery-heading">The Lai Rai Experience</h2>
+                <p class="section-subtitle">A taste of what awaits you</p>
+            </div>
+            <div class="gallery-grid" role="list" aria-label="Restaurant photo gallery">
+                <div class="gallery-item reveal" style="--i:0" role="listitem">
+                    <img src="media&photos/gallery/ambiance-1.jpg"
+                        alt="Lai Rai restaurant interior with warm ambient lighting and Vietnamese-inspired decor"
+                        loading="lazy">
+                    <div class="gallery-overlay" aria-hidden="true"><span>Our Space</span></div>
+                    <a href="media&photos/gallery/ambiance-1.jpg" class="gallery-item-link"
+                        aria-label="View full size photo of restaurant interior" tabindex="0"><span class="sr-only">View
+                            full size</span></a>
+                </div>
+                <div class="gallery-item reveal" style="--i:1" role="listitem">
+                    <img src="media&photos/gallery/grilled-oysters.jpg"
+                        alt="Grilled oysters topped with scallion fish sauce and cream cheese, beautifully plated"
+                        loading="lazy">
+                    <div class="gallery-overlay" aria-hidden="true"><span>Grilled Oysters</span></div>
+                    <a href="media&photos/gallery/grilled-oysters.jpg" class="gallery-item-link"
+                        aria-label="View full size photo of grilled oysters" tabindex="0"><span class="sr-only">View
+                            full size</span></a>
+                </div>
+                <div class="gallery-item reveal" style="--i:2" role="listitem">
+                    <img src="media&photos/gallery/food-1.jpg"
+                        alt="Vietnamese tapas small plates arranged for sharing on a wooden table" loading="lazy">
+                    <div class="gallery-overlay" aria-hidden="true"><span>Shared Plates</span></div>
+                    <a href="media&photos/gallery/food-1.jpg" class="gallery-item-link"
+                        aria-label="View full size photo of shared plates" tabindex="0"><span class="sr-only">View full
+                            size</span></a>
+                </div>
+                <div class="gallery-item reveal" style="--i:3" role="listitem">
+                    <img src="media&photos/gallery/food-2.jpg"
+                        alt="Fresh Vietnamese dish with herbs, bright sauces, and grilled meats" loading="lazy">
+                    <div class="gallery-overlay" aria-hidden="true"><span>Fresh Flavors</span></div>
+                    <a href="media&photos/gallery/food-2.jpg" class="gallery-item-link"
+                        aria-label="View full size photo of fresh Vietnamese dish" tabindex="0"><span
+                            class="sr-only">View full size</span></a>
+                </div>
+                <div class="gallery-item reveal" style="--i:4" role="listitem">
+                    <img src="media&photos/gallery/food-3.jpg"
+                        alt="Lai Rai signature dish with premium ingredients and vibrant presentation" loading="lazy">
+                    <div class="gallery-overlay" aria-hidden="true"><span>Signature Dishes</span></div>
+                    <a href="media&photos/gallery/food-3.jpg" class="gallery-item-link"
+                        aria-label="View full size photo of signature dish" tabindex="0"><span class="sr-only">View full
+                            size</span></a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Location Section -->
+        <section class="location" id="location" aria-labelledby="location-heading">
+            <div class="location-container">
+                <div class="location-content reveal">
+                    <h2 id="location-heading">Visit Us</h2>
+
+                    <div class="location-info">
+                        <div class="location-info-item">
+                            <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
+                            <div>
+                                <h4>Location</h4>
+                                <address style="font-style: normal;">
+                                    6467 Stirling Road<br>Davie, Florida 33314<br><em>(in Carriage Hills Plaza)</em>
+                                </address>
+                            </div>
+                        </div>
+
+                        <div class="location-info-item">
+                            <i class="fas fa-clock" aria-hidden="true"></i>
+                            <div>
+                                <h4>Hours</h4>
+                                <table class="hours-grid" role="table" aria-label="Business hours">
+                                    <tr class="hours-row">
+                                        <td>Monday</td>
+                                        <td>11 AM – 10:30 PM</td>
+                                    </tr>
+                                    <tr class="hours-row">
+                                        <td>Tuesday – Friday</td>
+                                        <td>5 PM – 10:30 PM</td>
+                                    </tr>
+                                    <tr class="hours-row">
+                                        <td>Saturday – Sunday</td>
+                                        <td>11 AM – 10:30 PM</td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+
+                        <div class="location-info-item">
+                            <i class="fas fa-phone" aria-hidden="true"></i>
+                            <div>
+                                <h4>Phone</h4>
+                                <p><a href="tel:+17542223388"
+                                        style="color: rgba(247, 243, 235, 0.95); text-decoration: none;">(754)
+                                        222-3388</a></p>
+                            </div>
+                        </div>
+
+                        <div class="location-info-item">
+                            <i class="fas fa-utensils" aria-hidden="true"></i>
+                            <div>
+                                <h4>Dining Options</h4>
+                                <p>Dine-in • Takeout • Online Ordering</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <a href="https://www.google.com/maps/place/Lai+Rai/data=!4m2!3m1!1s0x0:0x1ac0fce74a146d6f"
+                        class="btn btn-secondary" target="_blank" rel="noopener noreferrer"
+                        style="border-color: var(--gold); color: var(--gold);">
+                        <i class="fas fa-directions" aria-hidden="true"></i> Get Directions<span class="sr-only"> (opens
+                            in new tab)</span>
+                    </a>
+                </div>
+
+                <div class="location-map reveal">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3583.1!2d-80.2!3d26.07!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88d9a9003a055c7f%3A0x1ac0fce74a146d6f!2sLai%20Rai!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus"
+                        allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+                        title="Google Maps showing Lai Rai restaurant location at 6467 Stirling Road, Davie, Florida">
+                    </iframe>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact / Social Section -->
+        <section class="contact" id="contact" aria-labelledby="contact-heading">
+            <div class="contact-header reveal">
+                <h2 class="section-title gradient-title" id="contact-heading">Stay Connected</h2>
+                <p class="section-subtitle">Follow our journey and join the lai rai family</p>
+            </div>
+
+            <div class="social-links reveal" role="list" aria-label="Social media links">
+                <a href="https://www.instagram.com/lairaiofficial/" class="social-link" target="_blank"
+                    rel="noopener noreferrer" role="listitem"
+                    aria-label="Follow Lai Rai on Instagram (opens in new tab)">
+                    <i class="fab fa-instagram" aria-hidden="true"></i>
+                    <span>Instagram</span>
+                </a>
+                <a href="https://www.facebook.com/lairaiofficial" class="social-link" target="_blank"
+                    rel="noopener noreferrer" role="listitem"
+                    aria-label="Follow Lai Rai on Facebook (opens in new tab)">
+                    <i class="fab fa-facebook" aria-hidden="true"></i>
+                    <span>Facebook</span>
+                </a>
+                <a href="https://www.google.com/search?q=lai+rai#lrd=0x88d9a9003a055c7f:0x1ac0fce74a146d6f,1"
+                    class="social-link" target="_blank" rel="noopener noreferrer" role="listitem"
+                    aria-label="Read Lai Rai reviews on Google (opens in new tab)">
+                    <i class="fab fa-google" aria-hidden="true"></i>
+                    <span>Reviews</span>
+                </a>
+                <a href="https://www.yelp.com/biz/lai-rai-davie" class="social-link" target="_blank"
+                    rel="noopener noreferrer" role="listitem" aria-label="Visit Lai Rai on Yelp (opens in new tab)">
+                    <i class="fab fa-yelp" aria-hidden="true"></i>
+                    <span>Yelp</span>
+                </a>
+            </div>
+
+            <div class="reveal">
+                <a href="https://www.toasttab.com/local/order/lairai/r-34a7783e-0721-4742-af85-1f6a82c9e55f?diningOption=takeout"
+                    class="btn btn-primary" target="_blank" rel="noopener noreferrer">
+                    <i class="fas fa-shopping-bag" aria-hidden="true"></i> Order Online Now<span class="sr-only"> (opens
+                        in new tab)</span>
+                </a>
+            </div>
+        </section>
     </main>
 
     <!-- Footer -->
     <footer class="footer" role="contentinfo">
         <div class="footer-logo" aria-hidden="true">lai rai</div>
         <p class="footer-tagline">eat slow. drink more. stay awhile.</p>
-        
+
         <nav class="footer-links" aria-label="Footer navigation">
             <a href="#about">About</a>
             <a href="#menu">Menu</a>
+            <a href="#gallery">Gallery</a>
             <a href="#location">Visit</a>
-            <a href="https://www.toasttab.com/local/order/lairai/r-34a7783e-0721-4742-af85-1f6a82c9e55f?diningOption=takeout" target="_blank" rel="noopener noreferrer">Order Online<span class="sr-only"> (opens in new tab)</span></a>
+            <a href="https://www.toasttab.com/local/order/lairai/r-34a7783e-0721-4742-af85-1f6a82c9e55f?diningOption=takeout"
+                target="_blank" rel="noopener noreferrer">Order Online<span class="sr-only"> (opens in new
+                    tab)</span></a>
         </nav>
-        
+
         <p class="footer-copyright">
             © 2026 Lai Rai Vietnamese Tapas. All rights reserved.<br>
             6467 Stirling Road, Davie, FL 33314
@@ -1551,7 +2023,7 @@
         const nav = document.querySelector('.nav');
         const navToggle = document.querySelector('.nav-toggle');
         const navLinks = document.querySelector('.nav-links');
-        
+
         window.addEventListener('scroll', () => {
             if (window.scrollY > 100) {
                 nav.classList.add('scrolled');
@@ -1559,21 +2031,21 @@
                 nav.classList.remove('scrolled');
             }
         });
-        
+
         // Mobile navigation toggle with ARIA support
         function toggleNav() {
             const isOpen = navToggle.classList.toggle('active');
             navLinks.classList.toggle('active');
             navToggle.setAttribute('aria-expanded', isOpen);
-            
+
             // Trap focus inside mobile nav when open
             if (isOpen) {
                 navLinks.querySelector('a').focus();
             }
         }
-        
+
         navToggle.addEventListener('click', toggleNav);
-        
+
         // Allow keyboard activation of nav toggle
         navToggle.addEventListener('keydown', (e) => {
             if (e.key === 'Enter' || e.key === ' ') {
@@ -1581,7 +2053,7 @@
                 toggleNav();
             }
         });
-        
+
         // Close mobile nav when clicking a link
         document.querySelectorAll('.nav-links a').forEach(link => {
             link.addEventListener('click', () => {
@@ -1590,7 +2062,7 @@
                 navToggle.setAttribute('aria-expanded', 'false');
             });
         });
-        
+
         // Close mobile nav with Escape key (WCAG 2.1.1)
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape' && navLinks.classList.contains('active')) {
@@ -1600,12 +2072,12 @@
                 navToggle.focus();
             }
         });
-        
+
         // Menu category filtering with ARIA support
         const categoryBtns = document.querySelectorAll('.menu-category-btn');
         const menuItems = document.querySelectorAll('.menu-item');
         const menuStatus = document.getElementById('menu-status');
-        
+
         categoryBtns.forEach(btn => {
             btn.addEventListener('click', () => {
                 // Update active button and aria-pressed states
@@ -1615,14 +2087,14 @@
                 });
                 btn.classList.add('active');
                 btn.setAttribute('aria-pressed', 'true');
-                
+
                 const category = btn.dataset.category;
                 let visibleCount = 0;
-                
+
                 // Filter items
                 menuItems.forEach((item, index) => {
                     item.classList.remove('show');
-                    
+
                     if (category === 'all' || item.dataset.category === category) {
                         visibleCount++;
                         setTimeout(() => {
@@ -1630,17 +2102,17 @@
                         }, index * 50);
                     }
                 });
-                
+
                 // Announce change to screen readers via live region
                 const categoryName = btn.textContent;
                 menuStatus.textContent = `Showing ${visibleCount} ${categoryName} menu items`;
             });
-            
+
             // Allow keyboard navigation between filter buttons
             btn.addEventListener('keydown', (e) => {
                 const buttons = Array.from(categoryBtns);
                 const currentIndex = buttons.indexOf(btn);
-                
+
                 if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
                     e.preventDefault();
                     const next = buttons[(currentIndex + 1) % buttons.length];
@@ -1652,28 +2124,28 @@
                 }
             });
         });
-        
+
         // Scroll reveal animation (respects prefers-reduced-motion)
         const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
         const revealElements = document.querySelectorAll('.reveal');
-        
+
         const revealOnScroll = () => {
             revealElements.forEach(element => {
                 const elementTop = element.getBoundingClientRect().top;
                 const windowHeight = window.innerHeight;
-                
+
                 if (prefersReducedMotion || elementTop < windowHeight - 100) {
                     element.classList.add('active');
                 }
             });
         };
-        
+
         window.addEventListener('scroll', revealOnScroll);
         window.addEventListener('load', revealOnScroll);
-        
+
         // Smooth scroll for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
+            anchor.addEventListener('click', function (e) {
                 e.preventDefault();
                 const targetId = this.getAttribute('href');
                 const target = document.querySelector(targetId);
@@ -1688,14 +2160,14 @@
                 }
             });
         });
-        
+
         // WCAG 2.2 - 2.4.11 Focus Not Obscured: 
         // Ensure focused elements are not hidden behind the fixed navigation
         document.addEventListener('focusin', (e) => {
             const focused = e.target;
             const navHeight = nav.offsetHeight + 16; // 16px extra buffer
             const rect = focused.getBoundingClientRect();
-            
+
             if (rect.top < navHeight && rect.top >= 0) {
                 window.scrollBy({
                     top: rect.top - navHeight,
@@ -1705,4 +2177,5 @@
         });
     </script>
 </body>
+
 </html>
