@@ -969,90 +969,268 @@
         .social-proof-inner {
             position: relative;
             z-index: 1;
-            max-width: 800px;
+            max-width: 1100px;
             margin: 0 auto;
         }
 
-        .yelp-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(196, 149, 106, 0.3);
-            padding: 0.6rem 1.5rem;
-            border-radius: 50px;
-            margin-bottom: 1.5rem;
-            font-size: 0.8rem;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            color: var(--gold);
+        .ratings-header {
+            text-align: center;
+            margin-bottom: 3rem;
         }
 
-        .yelp-badge i {
-            font-size: 1.1rem;
-        }
-
-        .star-rating {
-            display: flex;
-            justify-content: center;
-            gap: 0.4rem;
-            margin-bottom: 1rem;
-        }
-
-        .star-rating i {
-            font-size: 1.8rem;
-            color: #FFD700;
-        }
-
-        .rating-number {
+        .ratings-header h2 {
             font-family: var(--font-serif);
-            font-size: clamp(3rem, 6vw, 4.5rem);
+            font-size: clamp(2rem, 4vw, 3rem);
             color: var(--cream);
-            line-height: 1;
             margin-bottom: 0.5rem;
         }
 
-        .rating-label {
+        .ratings-header p {
             font-size: 0.85rem;
-            color: rgba(247, 243, 235, 0.7);
+            color: rgba(247, 243, 235, 0.6);
             letter-spacing: 0.1em;
             text-transform: uppercase;
-            margin-bottom: 2rem;
         }
 
-        .proof-quote {
+        .platform-badges {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            margin-bottom: 3rem;
+        }
+
+        .platform-badge {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            background: rgba(255, 255, 255, 0.06);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(196, 149, 106, 0.25);
+            padding: 1rem 1.8rem;
+            border-radius: 16px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            min-width: 200px;
+        }
+
+        .platform-badge:hover,
+        .platform-badge:focus-visible {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: var(--gold);
+            transform: translateY(-2px);
+        }
+
+        .platform-badge .platform-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        .platform-badge .platform-icon.google-icon {
+            background: rgba(66, 133, 244, 0.15);
+            color: #4285F4;
+        }
+
+        .platform-badge .platform-icon.yelp-icon {
+            background: rgba(211, 35, 35, 0.15);
+            color: #D32323;
+        }
+
+        .platform-badge .platform-info {
+            text-align: left;
+        }
+
+        .platform-badge .platform-name {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: rgba(247, 243, 235, 0.5);
+            margin-bottom: 0.15rem;
+        }
+
+        .platform-badge .platform-rating {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .platform-badge .platform-score {
+            font-family: var(--font-serif);
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--cream);
+        }
+
+        .platform-badge .platform-stars {
+            display: flex;
+            gap: 0.1rem;
+        }
+
+        .platform-badge .platform-stars i {
+            font-size: 0.7rem;
+            color: #FFD700;
+        }
+
+        .reviews-toggle-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(196, 149, 106, 0.3);
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            color: var(--gold);
+            font-family: var(--font-sans);
+            font-size: 0.8rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-bottom: 0;
+        }
+
+        .reviews-toggle-btn:hover,
+        .reviews-toggle-btn:focus-visible {
+            background: rgba(255, 255, 255, 0.14);
+            border-color: var(--gold);
+            color: var(--cream);
+        }
+
+        .reviews-toggle-btn i {
+            transition: transform 0.3s ease;
+            font-size: 0.7rem;
+        }
+
+        .reviews-toggle-btn.active i {
+            transform: rotate(180deg);
+        }
+
+        .reviews-collapsible {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease, opacity 0.4s ease, margin 0.4s ease;
+            opacity: 0;
+            margin-top: 0;
+        }
+
+        .reviews-collapsible.open {
+            max-height: 2000px;
+            opacity: 1;
+            margin-top: 2rem;
+        }
+
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .review-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(196, 149, 106, 0.15);
+            border-radius: 16px;
+            padding: 1.8rem;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .review-card:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(196, 149, 106, 0.3);
+            transform: translateY(-3px);
+        }
+
+        .review-card-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 1rem;
+        }
+
+        .review-author {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .review-avatar {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--gold), var(--terracotta));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-serif);
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--cream);
+            flex-shrink: 0;
+        }
+
+        .review-author-info .review-name {
+            font-family: var(--font-sans);
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: var(--cream);
+        }
+
+        .review-author-info .review-location {
+            font-size: 0.7rem;
+            color: rgba(247, 243, 235, 0.45);
+        }
+
+        .review-source {
+            font-size: 0.85rem;
+            opacity: 0.7;
+        }
+
+        .review-source.google { color: #4285F4; }
+        .review-source.yelp { color: #D32323; }
+
+        .review-stars {
+            display: flex;
+            gap: 0.15rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .review-stars i {
+            font-size: 0.75rem;
+            color: #FFD700;
+        }
+
+        .review-text {
             font-family: var(--font-serif);
             font-style: italic;
-            font-size: clamp(1.1rem, 2vw, 1.4rem);
-            color: rgba(247, 243, 235, 0.9);
-            line-height: 1.8;
-            max-width: 650px;
-            margin: 0 auto 2rem;
-            position: relative;
-            padding: 0 2rem;
+            font-size: 1rem;
+            color: rgba(247, 243, 235, 0.85);
+            line-height: 1.7;
+            flex-grow: 1;
         }
 
-        .proof-quote::before,
-        .proof-quote::after {
-            font-family: var(--font-serif);
-            font-size: 3rem;
-            color: var(--gold);
-            opacity: 0.5;
-            position: absolute;
-            line-height: 1;
+        .review-date {
+            font-size: 0.7rem;
+            color: rgba(247, 243, 235, 0.35);
+            margin-top: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
         }
 
-        .proof-quote::before {
-            content: '\201C';
-            top: -0.5rem;
-            left: 0;
-        }
-
-        .proof-quote::after {
-            content: '\201D';
-            bottom: -1rem;
-            right: 0;
+        .proof-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
         }
 
         .proof-link {
@@ -1072,6 +1250,21 @@
         .proof-link:hover,
         .proof-link:focus-visible {
             color: var(--cream);
+        }
+
+        @media (max-width: 768px) {
+            .reviews-grid {
+                grid-template-columns: 1fr;
+            }
+            .platform-badges {
+                flex-direction: column;
+                align-items: center;
+            }
+            .platform-badge {
+                width: 100%;
+                max-width: 280px;
+                justify-content: center;
+            }
         }
 
         /* ===== PHOTO GALLERY SECTION ===== */
@@ -1268,7 +1461,6 @@
         <ul class="nav-links" id="nav-links" role="list">
             <li><a href="#about">About</a></li>
             <li><a href="#menu">Menu</a></li>
-            <li><a href="#gallery">Gallery</a></li>
             <li><a href="#location">Visit</a></li>
             <li><a href="https://www.toasttab.com/local/order/lairai/r-34a7783e-0721-4742-af85-1f6a82c9e55f?diningOption=takeout"
                     target="_blank" rel="noopener noreferrer">Order Online<span class="sr-only"> (opens in new
@@ -1304,13 +1496,13 @@
                         Explore Menu
                     </a>
                 </div>
-                <div class="hero-yelp-badge" aria-label="Rated 5 out of 5 stars on Yelp">
+                <div class="hero-yelp-badge" aria-label="Rated 4.9 on Google and 5.0 on Yelp">
                     <i class="fas fa-star" aria-hidden="true"></i>
                     <i class="fas fa-star" aria-hidden="true"></i>
                     <i class="fas fa-star" aria-hidden="true"></i>
                     <i class="fas fa-star" aria-hidden="true"></i>
                     <i class="fas fa-star" aria-hidden="true"></i>
-                    <span>5.0 on Yelp</span>
+                    <span>4.9 Google · 5.0 Yelp</span>
                 </div>
             </div>
             <a href="#about" class="scroll-indicator" aria-label="Scroll down to learn more">
@@ -1318,33 +1510,216 @@
             </a>
         </section>
 
-        <!-- Social Proof Section -->
+        <!-- Reviews Section -->
         <section class="social-proof" id="proof" aria-labelledby="proof-heading">
             <div class="social-proof-inner reveal">
-                <div class="yelp-badge">
-                    <i class="fab fa-yelp" aria-hidden="true"></i>
-                    <span>Featured on Yelp</span>
+                <div class="ratings-header">
+                    <h2 id="proof-heading">What People Are Saying</h2>
+                    <p>Vietnamese · Tapas · Comfort Food</p>
                 </div>
-                <div class="star-rating" role="img" aria-label="5 out of 5 stars">
-                    <i class="fas fa-star" aria-hidden="true"></i>
-                    <i class="fas fa-star" aria-hidden="true"></i>
-                    <i class="fas fa-star" aria-hidden="true"></i>
-                    <i class="fas fa-star" aria-hidden="true"></i>
-                    <i class="fas fa-star" aria-hidden="true"></i>
+
+                <div class="platform-badges">
+                    <a href="https://www.google.com/search?q=lai+rai#lrd=0x88d9a9003a055c7f:0x1ac0fce74a146d6f,1"
+                        class="platform-badge" target="_blank" rel="noopener noreferrer"
+                        aria-label="4.9 stars on Google (opens in new tab)">
+                        <div class="platform-icon google-icon">
+                            <i class="fab fa-google" aria-hidden="true"></i>
+                        </div>
+                        <div class="platform-info">
+                            <div class="platform-name">Google</div>
+                            <div class="platform-rating">
+                                <span class="platform-score">4.9</span>
+                                <div class="platform-stars">
+                                    <i class="fas fa-star" aria-hidden="true"></i>
+                                    <i class="fas fa-star" aria-hidden="true"></i>
+                                    <i class="fas fa-star" aria-hidden="true"></i>
+                                    <i class="fas fa-star" aria-hidden="true"></i>
+                                    <i class="fas fa-star" aria-hidden="true"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="https://www.yelp.com/biz/lai-rai-davie" class="platform-badge" target="_blank"
+                        rel="noopener noreferrer" aria-label="5.0 stars on Yelp (opens in new tab)">
+                        <div class="platform-icon yelp-icon">
+                            <i class="fab fa-yelp" aria-hidden="true"></i>
+                        </div>
+                        <div class="platform-info">
+                            <div class="platform-name">Yelp</div>
+                            <div class="platform-rating">
+                                <span class="platform-score">5.0</span>
+                                <div class="platform-stars">
+                                    <i class="fas fa-star" aria-hidden="true"></i>
+                                    <i class="fas fa-star" aria-hidden="true"></i>
+                                    <i class="fas fa-star" aria-hidden="true"></i>
+                                    <i class="fas fa-star" aria-hidden="true"></i>
+                                    <i class="fas fa-star" aria-hidden="true"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
                 </div>
-                <h2 class="rating-number" id="proof-heading" aria-label="Perfect 5.0 rating"><span
-                        id="rating-counter">5.0</span></h2>
-                <p class="rating-label">Perfect Rating · Vietnamese · Tapas · Comfort Food</p>
-                <blockquote class="proof-quote">
-                    At Lai Rai, food is meant to be shared and enjoyed together. You'll find the perfect mix of fresh
-                    herbs, savory broths, smoky grilled meats, bright sauces, and textures that keep every bite
-                    interesting.
-                </blockquote>
-                <a href="https://www.yelp.com/biz/lai-rai-davie" class="proof-link" target="_blank"
-                    rel="noopener noreferrer">
-                    Read Reviews on Yelp <i class="fas fa-arrow-right" aria-hidden="true"></i><span class="sr-only">
-                        (opens in new tab)</span>
-                </a>
+
+                <button class="reviews-toggle-btn" id="reviewsToggle" aria-expanded="false" aria-controls="reviewsContent">
+                    <span class="toggle-text">Read Reviews</span> <i class="fas fa-chevron-down" aria-hidden="true"></i>
+                </button>
+
+                <div class="reviews-collapsible" id="reviewsContent">
+                <div class="reviews-grid">
+                    <div class="review-card">
+                        <div class="review-card-header">
+                            <div class="review-author">
+                                <div class="review-avatar">T</div>
+                                <div class="review-author-info">
+                                    <div class="review-name">Thalia S.</div>
+                                    <div class="review-location">Google Review</div>
+                                </div>
+                            </div>
+                            <i class="fab fa-google review-source google" aria-label="Google review"></i>
+                        </div>
+                        <div class="review-stars" role="img" aria-label="5 out of 5 stars">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        </div>
+                        <p class="review-text">Absolutely amazing! Lai Rai was a great experience, made even better by
+                            our waiter Ravi. He was attentive, friendly, and knowledgeable, with spot-on recommendations
+                            and perfect timing throughout the meal. Service like his truly elevates the dining experience.</p>
+                        <div class="review-date">February 2026</div>
+                    </div>
+
+                    <div class="review-card">
+                        <div class="review-card-header">
+                            <div class="review-author">
+                                <div class="review-avatar">Y</div>
+                                <div class="review-author-info">
+                                    <div class="review-name">Yala L.</div>
+                                    <div class="review-location">Google Local Guide</div>
+                                </div>
+                            </div>
+                            <i class="fab fa-google review-source google" aria-label="Google review"></i>
+                        </div>
+                        <div class="review-stars" role="img" aria-label="5 out of 5 stars">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        </div>
+                        <p class="review-text">Food was amazing, you need to go try it! The most authentic Vietnamese
+                            food is right here. Ask for Stephanie as your server -- she's amazing and well informative.</p>
+                        <div class="review-date">February 2026</div>
+                    </div>
+
+                    <div class="review-card">
+                        <div class="review-card-header">
+                            <div class="review-author">
+                                <div class="review-avatar">J</div>
+                                <div class="review-author-info">
+                                    <div class="review-name">Jean S.</div>
+                                    <div class="review-location">Hollywood, FL</div>
+                                </div>
+                            </div>
+                            <i class="fab fa-yelp review-source yelp" aria-label="Yelp review"></i>
+                        </div>
+                        <div class="review-stars" role="img" aria-label="5 out of 5 stars">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        </div>
+                        <p class="review-text">The food is absolutely amazing. The best Vietnamese flavors I've had
+                            anywhere in the US including California. The flavors are as good as Tan Dinh in Paris.
+                            My husband and I were blown away. We will definitely be a regular.</p>
+                        <div class="review-date">February 2026</div>
+                    </div>
+
+                    <div class="review-card">
+                        <div class="review-card-header">
+                            <div class="review-author">
+                                <div class="review-avatar">S</div>
+                                <div class="review-author-info">
+                                    <div class="review-name">Salinda N.</div>
+                                    <div class="review-location">Atlanta, GA</div>
+                                </div>
+                            </div>
+                            <i class="fab fa-yelp review-source yelp" aria-label="Yelp review"></i>
+                        </div>
+                        <div class="review-stars" role="img" aria-label="5 out of 5 stars">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        </div>
+                        <p class="review-text">Being Vietnamese myself, I'm a bit picky when it comes to Vietnamese
+                            food. Even pickier is my mother! However we both enjoyed our foods and experience here.
+                            Sitting on the plastic stools and sharing small plates honestly reminded me of Vietnam.</p>
+                        <div class="review-date">February 2026</div>
+                    </div>
+
+                    <div class="review-card">
+                        <div class="review-card-header">
+                            <div class="review-author">
+                                <div class="review-avatar">S</div>
+                                <div class="review-author-info">
+                                    <div class="review-name">Samuel O.</div>
+                                    <div class="review-location">Fort Lauderdale, FL</div>
+                                </div>
+                            </div>
+                            <i class="fab fa-yelp review-source yelp" aria-label="Yelp review"></i>
+                        </div>
+                        <div class="review-stars" role="img" aria-label="5 out of 5 stars">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        </div>
+                        <p class="review-text">Menu is put together with a lot of thought towards creating a lively
+                            tasting experience with small plates packed with bold flavors. Wait staff is knowledgeable,
+                            energetic and committed to creating a warm, friendly vibe. Great place to dine, drink a beer
+                            or two, and repeat.</p>
+                        <div class="review-date">February 2026</div>
+                    </div>
+
+                    <div class="review-card">
+                        <div class="review-card-header">
+                            <div class="review-author">
+                                <div class="review-avatar">N</div>
+                                <div class="review-author-info">
+                                    <div class="review-name">Nancy L.</div>
+                                    <div class="review-location">Davie, FL</div>
+                                </div>
+                            </div>
+                            <i class="fab fa-yelp review-source yelp" aria-label="Yelp review"></i>
+                        </div>
+                        <div class="review-stars" role="img" aria-label="5 out of 5 stars">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        </div>
+                        <p class="review-text">1..2..3.. Dzo!!! That's how they do it Vietnamese style! Top street food
+                            items were the steamed clams, tamarind snails, grilled skewers, mango salad, and the balut.
+                            Great for sharing and affordable pricing. Flavor was great for each item.</p>
+                        <div class="review-date">February 2026</div>
+                    </div>
+
+                    <div class="review-card">
+                        <div class="review-card-header">
+                            <div class="review-author">
+                                <div class="review-avatar">A</div>
+                                <div class="review-author-info">
+                                    <div class="review-name">Anastasiya E.</div>
+                                    <div class="review-location">Miami Beach, FL</div>
+                                </div>
+                            </div>
+                            <i class="fab fa-yelp review-source yelp" aria-label="Yelp review"></i>
+                        </div>
+                        <div class="review-stars" role="img" aria-label="5 out of 5 stars">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        </div>
+                        <p class="review-text">The food was exquisite. Not just "good," but creative, adventurous, and
+                            clearly made by people who love food. This place isn't just a restaurant, it's an experience.
+                            The staff absolutely elevated the experience.</p>
+                        <div class="review-date">February 2026</div>
+                    </div>
+                </div>
+
+                <div class="proof-links">
+                    <a href="https://www.google.com/search?q=lai+rai#lrd=0x88d9a9003a055c7f:0x1ac0fce74a146d6f,1"
+                        class="proof-link" target="_blank" rel="noopener noreferrer">
+                        Review us on Google <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                        <span class="sr-only">(opens in new tab)</span>
+                    </a>
+                    <a href="https://www.yelp.com/biz/lai-rai-davie" class="proof-link" target="_blank"
+                        rel="noopener noreferrer">
+                        Read more on Yelp <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                        <span class="sr-only">(opens in new tab)</span>
+                    </a>
+                </div>
+                </div>
             </div>
         </section>
 
@@ -1827,58 +2202,6 @@
             </div>
         </section>
 
-        <!-- Photo Gallery Section -->
-        <section class="gallery" id="gallery" aria-labelledby="gallery-heading">
-            <div class="gallery-header reveal">
-                <h2 class="section-title gradient-title" id="gallery-heading">The Lai Rai Experience</h2>
-                <p class="section-subtitle">A taste of what awaits you</p>
-            </div>
-            <div class="gallery-grid" role="list" aria-label="Restaurant photo gallery">
-                <div class="gallery-item reveal" style="--i:0" role="listitem">
-                    <img src="media&photos/gallery/ambiance-1.jpg"
-                        alt="Lai Rai restaurant interior with warm ambient lighting and Vietnamese-inspired decor"
-                        loading="lazy">
-                    <div class="gallery-overlay" aria-hidden="true"><span>Our Space</span></div>
-                    <a href="media&photos/gallery/ambiance-1.jpg" class="gallery-item-link"
-                        aria-label="View full size photo of restaurant interior" tabindex="0"><span class="sr-only">View
-                            full size</span></a>
-                </div>
-                <div class="gallery-item reveal" style="--i:1" role="listitem">
-                    <img src="media&photos/gallery/grilled-oysters.jpg"
-                        alt="Grilled oysters topped with scallion fish sauce and cream cheese, beautifully plated"
-                        loading="lazy">
-                    <div class="gallery-overlay" aria-hidden="true"><span>Grilled Oysters</span></div>
-                    <a href="media&photos/gallery/grilled-oysters.jpg" class="gallery-item-link"
-                        aria-label="View full size photo of grilled oysters" tabindex="0"><span class="sr-only">View
-                            full size</span></a>
-                </div>
-                <div class="gallery-item reveal" style="--i:2" role="listitem">
-                    <img src="media&photos/gallery/food-1.jpg"
-                        alt="Vietnamese tapas small plates arranged for sharing on a wooden table" loading="lazy">
-                    <div class="gallery-overlay" aria-hidden="true"><span>Shared Plates</span></div>
-                    <a href="media&photos/gallery/food-1.jpg" class="gallery-item-link"
-                        aria-label="View full size photo of shared plates" tabindex="0"><span class="sr-only">View full
-                            size</span></a>
-                </div>
-                <div class="gallery-item reveal" style="--i:3" role="listitem">
-                    <img src="media&photos/gallery/food-2.jpg"
-                        alt="Fresh Vietnamese dish with herbs, bright sauces, and grilled meats" loading="lazy">
-                    <div class="gallery-overlay" aria-hidden="true"><span>Fresh Flavors</span></div>
-                    <a href="media&photos/gallery/food-2.jpg" class="gallery-item-link"
-                        aria-label="View full size photo of fresh Vietnamese dish" tabindex="0"><span
-                            class="sr-only">View full size</span></a>
-                </div>
-                <div class="gallery-item reveal" style="--i:4" role="listitem">
-                    <img src="media&photos/gallery/food-3.jpg"
-                        alt="Lai Rai signature dish with premium ingredients and vibrant presentation" loading="lazy">
-                    <div class="gallery-overlay" aria-hidden="true"><span>Signature Dishes</span></div>
-                    <a href="media&photos/gallery/food-3.jpg" class="gallery-item-link"
-                        aria-label="View full size photo of signature dish" tabindex="0"><span class="sr-only">View full
-                            size</span></a>
-                </div>
-            </div>
-        </section>
-
         <!-- Location Section -->
         <section class="location" id="location" aria-labelledby="location-heading">
             <div class="location-container">
@@ -2005,7 +2328,6 @@
         <nav class="footer-links" aria-label="Footer navigation">
             <a href="#about">About</a>
             <a href="#menu">Menu</a>
-            <a href="#gallery">Gallery</a>
             <a href="#location">Visit</a>
             <a href="https://www.toasttab.com/local/order/lairai/r-34a7783e-0721-4742-af85-1f6a82c9e55f?diningOption=takeout"
                 target="_blank" rel="noopener noreferrer">Order Online<span class="sr-only"> (opens in new
@@ -2019,6 +2341,17 @@
     </footer>
 
     <script>
+        // Reviews toggle
+        const reviewsToggle = document.getElementById('reviewsToggle');
+        const reviewsContent = document.getElementById('reviewsContent');
+        const toggleText = reviewsToggle.querySelector('.toggle-text');
+        reviewsToggle.addEventListener('click', () => {
+            const isOpen = reviewsContent.classList.toggle('open');
+            reviewsToggle.classList.toggle('active');
+            reviewsToggle.setAttribute('aria-expanded', isOpen);
+            toggleText.textContent = isOpen ? 'Hide Reviews' : 'Read Reviews';
+        });
+
         // Navigation scroll effect
         const nav = document.querySelector('.nav');
         const navToggle = document.querySelector('.nav-toggle');
