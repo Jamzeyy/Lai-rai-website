@@ -1405,6 +1405,52 @@
             animation: fadeInUp 1s ease-out, subtleFloat 6s ease-in-out 2s infinite;
         }
 
+        /* Floating TikTok CTA */
+        .tiktok-float {
+            position: fixed;
+            bottom: 1.5rem;
+            left: 1.5rem;
+            z-index: 999;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: #000;
+            color: #fff;
+            padding: 0.55rem 1rem 0.55rem 0.75rem;
+            border-radius: 50px;
+            font-family: var(--font-body);
+            font-size: 0.8rem;
+            letter-spacing: 0.03em;
+            text-decoration: none;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            animation: tiktokFadeIn 1.5s ease-out 3s both;
+        }
+
+        .tiktok-float:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
+            color: #fff;
+        }
+
+        .tiktok-float i {
+            font-size: 1.15rem;
+        }
+
+        @keyframes tiktokFadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (max-width: 768px) {
+            .tiktok-float {
+                bottom: 1rem;
+                left: 1rem;
+                font-size: 0.75rem;
+                padding: 0.5rem 0.85rem 0.5rem 0.65rem;
+            }
+        }
+
         /* Gradient text effect for section titles */
         .gradient-title {
             background: linear-gradient(135deg, var(--terracotta) 0%, var(--gold-accessible) 50%, var(--terracotta) 100%);
@@ -2291,6 +2337,12 @@
                     <i class="fab fa-instagram" aria-hidden="true"></i>
                     <span>Instagram</span>
                 </a>
+                <a href="https://www.tiktok.com/@lairaiofficial" class="social-link" target="_blank"
+                    rel="noopener noreferrer" role="listitem"
+                    aria-label="Follow Lai Rai on TikTok (opens in new tab)">
+                    <i class="fab fa-tiktok" aria-hidden="true"></i>
+                    <span>TikTok</span>
+                </a>
                 <a href="https://www.facebook.com/lairaiofficial" class="social-link" target="_blank"
                     rel="noopener noreferrer" role="listitem"
                     aria-label="Follow Lai Rai on Facebook (opens in new tab)">
@@ -2509,6 +2561,12 @@
             }
         });
     </script>
+
+    <a href="https://www.tiktok.com/@lairaiofficial" class="tiktok-float" target="_blank"
+        rel="noopener noreferrer" aria-label="Follow Lai Rai on TikTok (opens in new tab)">
+        <i class="fab fa-tiktok" aria-hidden="true"></i>
+        <span>Follow us on TikTok</span>
+    </a>
 </body>
 
 </html>
